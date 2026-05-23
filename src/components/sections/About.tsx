@@ -17,22 +17,22 @@ export default function About() {
 
       <div className="relative z-10 max-w-[600px]">
         <FadeIn>
-          <h1 className="font-servus font-light text-[clamp(1.8rem,6vw,3rem)] leading-[1.1] tracking-[-0.5px] text-brand-cream uppercase">
+          <h1 className="font-servus font-light text-[clamp(2.5rem,8vw,4rem)] leading-[1.1] tracking-[-0.5px] text-brand-cream uppercase">
             REUNION
           </h1>
-          <p className="font-servus font-light text-[clamp(0.85rem,2.2vw,1.1rem)] leading-[1.4] text-brand-cream mt-[5px] mb-10">
+          <p className="font-servus font-light text-[clamp(0.85rem,2vw,1.1rem)] leading-[1.4] text-brand-cream mt-[5px] mb-10">
             cocktails + provisions
           </p>
         </FadeIn>
 
         <FadeIn delay={0.15}>
-          <h2 className="font-literata text-[18px] font-normal text-brand-cream mb-5 leading-[1.5]">
+          <h2 className="font-literata text-[15px] font-normal text-brand-cream mb-5 leading-[1.5]">
             Social Dining Experience &amp; Craft Cocktails in Hershey, Pennsylvania
           </h2>
         </FadeIn>
 
         <FadeIn delay={0.25}>
-          <p className="font-literata text-[16px] leading-[1.6] text-brand-cream/70 max-w-[480px]">
+          <p className="font-literata text-[15px] leading-[1.6] text-brand-cream/70 max-w-[480px]">
             Reunion Cocktails &amp; Provisions is a social dining experience in Hershey
             centered around inspired dishes, handcrafted cocktails, and a space
             designed for connection. Warm, modern, and intentionally composed,

@@ -65,7 +65,7 @@ export default function Hero() {
         <AnimatedWord
           text="Reunion"
           baseDelay={3.7}
-          className="font-servus font-light text-brand-cream/80 text-[clamp(3.5rem,11vw,9rem)] leading-[0.9] tracking-wide uppercase"
+          className="font-servus font-light text-brand-cream/80 text-[clamp(2rem,9vw,9rem)] leading-[0.9] tracking-wide uppercase whitespace-nowrap"
         />
 
         <AnimatedWord

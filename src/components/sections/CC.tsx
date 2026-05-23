@@ -7,21 +7,21 @@ export default function CC() {
         <FadeIn>
           <h2
             id="cc-heading"
-            className="font-literata text-[clamp(1.6rem,4.5vw,2.5rem)] font-normal leading-[1.3] text-brand-cream mb-10"
+            className="font-literata text-[clamp(1.5rem,4.5vw,2.5rem)] font-normal leading-[1.3] text-brand-cream mb-10"
           >
             Crafted to Connect
           </h2>
         </FadeIn>
 
         <FadeIn delay={0.15}>
-          <p className="font-literata text-[16px] leading-[1.7] text-brand-cream/85 mb-6">
+          <p className="font-literata text-[15px] leading-[1.7] text-brand-cream/85 mb-6">
             At Reunion, we believe great hospitality lives at the intersection of
             craft, cuisine, and connection. The cocktail is the centerpiece—
             thoughtfully composed, balanced, and intentional—designed to live
             alongside shareable dishes that invite conversation and discovery.
           </p>
 
-          <p className="font-literata text-[16px] leading-[1.7] text-brand-cream/85">
+          <p className="font-literata text-[15px] leading-[1.7] text-brand-cream/85">
             A moody yet inviting warmth, layered with intentional lighting, creates a
             sense of renewal—mirroring the transformation of the space and the energy
             of Hershey&apos;s west end growth. Whether you&apos;re joining us for drinks
