@@ -137,7 +137,7 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className="sticky top-0 z-50 h-28 bg-black flex items-center justify-between px-8 md:px-10"
+        className="sticky top-0 z-50 h-28 bg-brand-bg flex items-center justify-between px-8 md:px-10"
         aria-label="Main navigation"
       >
         <LogoLink />
@@ -193,7 +193,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="fixed top-0 right-0 h-full w-[80%] max-w-[340px] z-50 bg-black border-l border-brand-cream/10 flex flex-col md:hidden"
+              className="fixed top-0 right-0 h-full w-[80%] max-w-[340px] z-50 bg-brand-bg border-l border-brand-cream/10 flex flex-col md:hidden"
             >
               {/* Drawer header — matches navbar height */}
               <div className="h-28 flex items-center justify-end px-8">
