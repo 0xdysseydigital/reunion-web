@@ -24,9 +24,8 @@ function ScrollCue() {
 
   return (
     <motion.div
-      style={{ opacity }}
+      style={{ opacity, bottom: "clamp(3rem, 8vh, 5rem)" }}
       className="absolute left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-      style={{ bottom: "clamp(3rem, 8vh, 5rem)" }}
     >
       <span className="font-platypi text-[10px] tracking-[0.3em] uppercase text-brand-cream/40">
         Scroll
