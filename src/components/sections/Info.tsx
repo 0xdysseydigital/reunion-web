@@ -22,11 +22,11 @@ export default function Info() {
       </FadeIn>
 
       {/* Right — content */}
-      <div className="flex-1 flex flex-col justify-center px-10 md:px-16 py-16 md:py-24">
+      <div className="flex-1 flex flex-col justify-center px-6 md:px-16 py-12 md:py-24">
         <FadeIn delay={0.1}>
           <h2
             id="info-heading"
-            className="font-servus font-light text-[48px] leading-[1.3] text-brand-cream mb-8"
+            className="font-servus font-light text-[clamp(1.8rem,5vw,3rem)] leading-[1.3] text-brand-cream mb-8"
           >
             Location &amp; Hours
           </h2>
@@ -47,7 +47,7 @@ export default function Info() {
             dinner service each night.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col xs:flex-row gap-4">
             <Button href="/reservations">Book a Reservation</Button>
             <Button
               href="https://maps.google.com/?q=1201+W+Chocolate+Ave+Hummelstown+PA+17036"

@@ -61,7 +61,7 @@ export default function PrivateDiningPage() {
     <div className="min-h-screen flex flex-col">
 
       {/* Header */}
-      <div className="border-b border-brand-cream/10 px-10 py-20 flex flex-col items-center text-center">
+      <div className="border-b border-brand-cream/10 px-6 md:px-10 py-14 md:py-20 flex flex-col items-center text-center">
         <FadeIn direction="none">
           <p className="font-platypi text-[11px] tracking-[0.3em] uppercase text-brand-cream/40 mb-4">
             Hummelstown, PA
@@ -89,14 +89,14 @@ export default function PrivateDiningPage() {
           <FadeIn
             direction={imageLeft ? "left" : "right"}
             amount={0.15}
-            className="w-full md:w-[45%] min-h-[500px] flex-shrink-0 relative overflow-hidden"
+            className="w-full md:w-[45%] min-h-[300px] md:min-h-[500px] flex-shrink-0 relative overflow-hidden"
           >
             <Image src={space.src} alt={space.label} fill className="object-cover" />
           </FadeIn>
         );
 
         const content = (
-          <div className="flex-1 flex flex-col justify-center px-10 md:px-16 py-16 md:py-24">
+          <div className="flex-1 flex flex-col justify-center px-6 md:px-16 py-10 md:py-24">
             <FadeIn delay={0.1}>
               <p className="font-platypi text-[11px] tracking-[0.3em] uppercase text-brand-cream/35 mb-4">
                 {space.eyebrow}

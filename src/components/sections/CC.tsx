@@ -2,12 +2,12 @@ import FadeIn from "@/components/FadeIn";
 
 export default function CC() {
   return (
-    <section className="bg-brand-bg py-24 px-10" aria-labelledby="cc-heading">
+    <section className="bg-brand-bg py-16 md:py-24 px-6 md:px-10" aria-labelledby="cc-heading">
       <div className="max-w-[720px] mx-auto text-center">
         <FadeIn>
           <h2
             id="cc-heading"
-            className="font-literata text-[48px] font-normal leading-[1.3] text-brand-cream mb-10"
+            className="font-literata text-[clamp(1.8rem,5vw,3rem)] font-normal leading-[1.3] text-brand-cream mb-10"
           >
             Crafted to Connect
           </h2>

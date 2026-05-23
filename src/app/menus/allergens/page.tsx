@@ -37,7 +37,7 @@ export default function AllergensPage() {
     <div className="min-h-screen flex flex-col">
 
       {/* Header */}
-      <div className="border-b border-brand-cream/10 px-10 py-16 flex flex-col items-center text-center">
+      <div className="border-b border-brand-cream/10 px-6 md:px-10 py-12 md:py-16 flex flex-col items-center text-center">
         <FadeIn direction="none">
           <p className="font-platypi text-[11px] tracking-[0.3em] uppercase text-brand-cream/40 mb-4">
             Dietary

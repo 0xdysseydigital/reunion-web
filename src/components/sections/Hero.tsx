@@ -78,7 +78,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 4.5, duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="flex gap-4 mt-16"
+          className="flex flex-col sm:flex-row gap-4 mt-16"
         >
           <Button href="/reservations">Reservations</Button>
           <Button href="/menus">View Menus</Button>

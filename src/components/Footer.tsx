@@ -11,7 +11,7 @@ const NAV_LINKS = [
 export default function Footer() {
   return (
     <footer
-      className="bg-brand-bg border-t border-brand-cream px-10 py-10"
+      className="bg-brand-bg border-t border-brand-cream px-6 md:px-10 py-10"
       aria-label="Site footer"
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
@@ -49,7 +49,7 @@ export default function Footer() {
                 href="mailto:manager@reunioncocktailsprovisions.com"
                 className="font-literata text-[12px] text-brand-cream/70 hover:text-brand-cream transition-colors duration-200"
               >
-                manager@reunioncocktailsprovisions.com
+                manager@reunion<wbr />cocktailsprovisions.com
               </a>
             </p>
             <p className="font-literata text-[12px] text-brand-cream/70">
