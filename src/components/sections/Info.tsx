@@ -22,7 +22,7 @@ export default function Info() {
       </FadeIn>
 
       {/* Right — content */}
-      <div className="flex-1 flex flex-col justify-center px-6 md:px-16 py-12 md:py-24">
+      <div className="flex-1 flex flex-col justify-center px-6 md:px-16 py-20 md:py-24">
         <FadeIn delay={0.1}>
           <h2
             id="info-heading"

@@ -26,7 +26,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="bg-brand-bg px-6 md:px-10 py-16 md:py-24" aria-labelledby="faq-heading">
+    <section id="faq" className="bg-brand-bg px-6 md:px-10 py-24 md:py-24" aria-labelledby="faq-heading">
       <div className="max-w-[900px] mx-auto">
         <motion.h2
           id="faq-heading"

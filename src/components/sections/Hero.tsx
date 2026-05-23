@@ -65,13 +65,13 @@ export default function Hero() {
         <AnimatedWord
           text="Reunion"
           baseDelay={3.7}
-          className="font-servus font-light text-brand-cream/80 text-[clamp(2.5rem,8vw,6rem)] leading-[0.9] tracking-wide uppercase"
+          className="font-servus font-light text-brand-cream/80 text-[clamp(3.5rem,11vw,9rem)] leading-[0.9] tracking-wide uppercase"
         />
 
         <AnimatedWord
           text="Cocktails + Kitchen"
           baseDelay={4.05}
-          className="font-platypi text-brand-cream/60 text-[clamp(0.6rem,1.6vw,1.1rem)] leading-[0.9] tracking-[0.3em] uppercase mt-3.5"
+          className="font-platypi text-brand-cream/60 text-[clamp(0.75rem,1.6vw,1.1rem)] leading-[0.9] tracking-[0.3em] uppercase mt-3.5"
         />
 
         <motion.div

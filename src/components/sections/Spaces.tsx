@@ -63,7 +63,28 @@ export default function Spaces() {
 
   return (
     <section className="bg-brand-bg" aria-label="Our spaces">
-      <div className="flex flex-col md:flex-row md:h-[60vh]">
+
+      {/* Mobile — simple stacked rows */}
+      <div className="flex flex-col md:hidden">
+        {SPACES.map(({ label, src, href, slug }) => (
+          <Link
+            key={slug}
+            href={href}
+            className="relative aspect-[4/3] overflow-hidden block"
+          >
+            <Image src={src} alt={label} fill className="object-cover" />
+            <div className="absolute inset-0 bg-black/50" />
+            <div className="absolute inset-0 flex items-center justify-center px-4">
+              <span className="font-servus font-normal text-brand-cream text-[1rem] tracking-[0.15em] uppercase">
+                {label}
+              </span>
+            </div>
+          </Link>
+        ))}
+      </div>
+
+      {/* Desktop — expand-on-hover */}
+      <div className="hidden md:flex md:h-[60vh]">
         {SPACES.map(({ label, src, href, slug }, i) => {
           const isHovered = hoveredSlug === slug;
           const isShrunk = hoveredSlug !== null && !isHovered;
@@ -126,6 +147,7 @@ export default function Spaces() {
           );
         })}
       </div>
+
     </section>
   );
 }

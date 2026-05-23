@@ -4,7 +4,7 @@ import FadeIn from "@/components/FadeIn";
 export default function About() {
   return (
     <section
-      className="relative bg-brand-bg px-6 md:pl-[75px] md:pr-10 py-16 md:py-40 overflow-hidden"
+      className="relative bg-brand-bg px-6 md:pl-[75px] md:pr-10 py-24 md:py-40 overflow-hidden"
       aria-label="About Reunion"
     >
       {/* Logo watermark — right side */}
@@ -17,10 +17,10 @@ export default function About() {
 
       <div className="relative z-10 max-w-[600px]">
         <FadeIn>
-          <h1 className="font-servus font-light text-[clamp(2.5rem,10vw,4rem)] leading-[1.1] tracking-[-0.5px] text-brand-cream uppercase">
+          <h1 className="font-servus font-light text-[clamp(1.8rem,6vw,3rem)] leading-[1.1] tracking-[-0.5px] text-brand-cream uppercase">
             REUNION
           </h1>
-          <p className="font-servus font-light text-[clamp(1rem,3.5vw,1.5rem)] leading-[1.4] text-brand-cream mt-[5px] mb-10">
+          <p className="font-servus font-light text-[clamp(0.85rem,2.2vw,1.1rem)] leading-[1.4] text-brand-cream mt-[5px] mb-10">
             cocktails + provisions
           </p>
         </FadeIn>
