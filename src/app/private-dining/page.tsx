@@ -120,10 +120,11 @@ export default function PrivateDiningPage() {
           <section
             key={space.id}
             id={space.id}
-            className="flex flex-col md:flex-row border-b border-brand-cream/10 scroll-mt-28"
+            className={`flex flex-col border-b border-brand-cream/10 scroll-mt-28 ${imageLeft ? "md:flex-row" : "md:flex-row-reverse"}`}
             aria-label={space.label}
           >
-            {imageLeft ? <>{photo}{content}</> : <>{content}{photo}</>}
+            {photo}
+            {content}
           </section>
         );
       })}
