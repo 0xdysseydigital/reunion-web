@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+/* ── Font Faces ─────────────────────────────────────────────── */
+
+@font-face {
+  font-family: "Servus";
+  src: url("/fonts/servustest-light.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Servus";
+  src: url("/fonts/servustest-regular (1).otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Servus";
+  src: url("/fonts/servustest-bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Literata";
+  src: url("/fonts/Literata-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Platypi";
+  src: url("/fonts/Platypi-VariableFont_wght (2).ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Design Tokens ──────────────────────────────────────────── */
+
+@theme inline {
+  --color-brand-bg: #090A09;
+  --color-brand-cream: #EDEDE0;
+
+  --font-servus: "Servus", serif;
+  --font-literata: "Literata", Georgia, serif;
+  --font-platypi: "Platypi", serif;
+}
+
+/* ── Base ───────────────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #090A09;
+  color: #EDEDE0;
+  font-family: "Literata", Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
