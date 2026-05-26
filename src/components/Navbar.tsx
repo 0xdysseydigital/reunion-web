@@ -156,7 +156,7 @@ export default function Navbar() {
           {/* Social icons — desktop only */}
           <div className="hidden md:flex items-center gap-3">
             <SocialLink href="https://www.instagram.com/reunioncocktailsprovisions/" label="Instagram"><InstagramIcon /></SocialLink>
-            <SocialLink href="https://facebook.com" label="Facebook"><FacebookIcon /></SocialLink>
+            <SocialLink href="https://www.facebook.com/reunioncocktailsandprovisions" label="Facebook"><FacebookIcon /></SocialLink>
           </div>
 
           {/* Hamburger — mobile only */}
@@ -241,7 +241,7 @@ export default function Navbar() {
                 className="flex items-center gap-5 px-10 pb-12"
               >
                 <SocialLink href="https://www.instagram.com/reunioncocktailsprovisions/" label="Instagram"><InstagramIcon /></SocialLink>
-                <SocialLink href="https://facebook.com" label="Facebook"><FacebookIcon /></SocialLink>
+                <SocialLink href="https://www.facebook.com/reunioncocktailsandprovisions" label="Facebook"><FacebookIcon /></SocialLink>
               </motion.div>
             </motion.div>
           </>
