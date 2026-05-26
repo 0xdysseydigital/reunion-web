@@ -5,21 +5,19 @@ import { motion } from "framer-motion";
 
 const FAQS = [
   { q: "What is Reunion?", a: "Reunion Cocktails & Provisions is a social dining experience in Hershey, PA centered around inspired dishes, handcrafted cocktails, and a space designed for connection." },
-  { q: "What kind of experience should I expect?", a: "A warm, moody atmosphere perfect for evening dining, cocktails at the bar, or a full dinner with friends. The experience evolves throughout the night." },
+  { q: "What kind of experience should I expect?", a: "Reunion is designed around connection — inspired cocktails, shareable dishes, and a warm, intentionally designed space meant for conversation. Dining at Reunion is designed to flow naturally through the evening. Reservations are thoughtfully timed to allow guests to enjoy their meal, and once dining concludes, we invite you to continue the experience at the bar or in the lounge." },
   { q: "Do you have a bar?", a: "Yes. Our full-service bar features handcrafted cocktails, curated wines, and a thoughtful spirits program." },
   { q: "Can we just come for drinks?", a: "Absolutely. Walk-ins at the bar are always welcome." },
   { q: "Do you serve food at the bar?", a: "Yes, the full menu is available at the bar." },
-  { q: "Do you take reservations?", a: "Yes. Reservations are strongly recommended, especially on weekends. Book via our reservations page." },
+  { q: "Do you take reservations?", a: "Reservations are preferred, as dining room availability can be limited without one. While walk-ins are always welcome, we strongly encourage reserving in advance to ensure the best possible experience." },
   { q: "Do you accept walk-ins?", a: "We do our best to accommodate walk-ins based on availability." },
-  { q: "Do you take reservations for large parties?", a: "Yes. For parties of 8 or more, please contact us directly for private dining options." },
+  { q: "Do you take reservations for large parties?", a: "We’re happy to accommodate reservations for parties of up to 12 guests ordering from our regular menu. For gatherings larger than 12, we invite you to celebrate in the Atrium, our private dining room, where our event menu allows us to thoughtfully host your group." },
   { q: "Is your menu designed for sharing?", a: "Many of our plates are designed to be shared, encouraging a communal dining experience." },
-  { q: "Is there a time limit on tables?", a: "We ask that parties be mindful during busy service, but we do not enforce strict time limits." },
-  { q: "Do I need my full party to be seated?", a: "We prefer the full party before seating, but please call ahead if circumstances are unusual." },
+  { q: "Do I need my full party to be seated?", a: "If you have a reservation, you’re welcome to be seated upon arrival, even if others are still on the way. For walk-ins, we kindly ask that the full party be present before seating so we can intentionally set the table for your time together." },
   { q: "Is Reunion wheelchair accessible?", a: "Yes, our space is ADA accessible." },
   { q: "Do you have outdoor dining?", a: "Outdoor seating is seasonal. Check our social media for current availability." },
   { q: "Do you have onsite parking?", a: "Street parking is available nearby. A parking garage is located one block east." },
   { q: "What should I wear?", a: "Smart casual is the norm — we want you to feel comfortable and put-together." },
-  { q: "Do you split checks?", a: "We can split checks up to 4 ways per table." },
 ];
 
 export default function FAQ() {
