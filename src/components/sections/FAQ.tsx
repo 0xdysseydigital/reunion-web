@@ -17,7 +17,7 @@ const FAQS = [
   { q: "Is Reunion wheelchair accessible?", a: "Yes, our space is ADA accessible." },
   { q: "Do you have outdoor dining?", a: "Outdoor seating is seasonal. Check our social media for current availability." },
   { q: "Do you have onsite parking?", a: "Street parking is available nearby. A parking garage is located one block east." },
-  { q: "What should I wear?", a: "Smart casual is the norm — we want you to feel comfortable and put-together." },
+  { q: "What should I wear?", a: "Reunion maintains a comfortable and respectful atmosphere for all of our guests and welcomes a range of styles, from casual to elevated evening wear." },
 ];
 
 export default function FAQ() {
