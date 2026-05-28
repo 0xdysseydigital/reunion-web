@@ -13,7 +13,7 @@ const ALL_ITEMS_QUERY = `*[_type == "menuItem"] | order(menu_type asc, section a
   "image": image.asset->url,
   menu_type,
   section,
-  allergens
+  "allergens": coalesce(allergens, [])
 }`;
 
 export const metadata = {

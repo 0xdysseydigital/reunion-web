@@ -25,7 +25,7 @@ const ITEMS_QUERY = `*[_type == "menuItem" && menu_type == $type] | order(sectio
   "image": image.asset->url,
   menu_type,
   section,
-  allergens
+  "allergens": coalesce(allergens, [])
 }`;
 
 export function generateStaticParams() {

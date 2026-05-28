@@ -12,14 +12,16 @@ export default function MenuItemCard({
   return (
     <article className="flex flex-col">
       {/* Image */}
-      <div className="relative aspect-[4/3] overflow-hidden flex-shrink-0">
-        <Image
-          src={item.image}
-          alt={item.name}
-          fill
-          className="object-cover"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        />
+      <div className="relative aspect-[4/3] overflow-hidden flex-shrink-0 bg-brand-cream/5">
+        {item.image && (
+          <Image
+            src={item.image}
+            alt={item.name}
+            fill
+            className="object-cover"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          />
+        )}
       </div>
 
       {/* Content */}
@@ -46,9 +48,9 @@ export default function MenuItemCard({
         </p>
 
         {/* Allergen badges */}
-        {item.allergens.length > 0 && (
+        {(item.allergens ?? []).length > 0 && (
           <div className="flex flex-wrap gap-1.5 mt-1">
-            {item.allergens.map((tag) => (
+            {(item.allergens ?? []).map((tag) => (
               <span
                 key={tag}
                 className="font-platypi text-[9px] tracking-[0.08em] uppercase px-2 py-0.5 border border-brand-cream/20 text-brand-cream/45"
