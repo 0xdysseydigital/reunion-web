@@ -54,7 +54,7 @@ export default async function MenuTypePage({
   const items: MenuItem[] = (await client.fetch(
     ITEMS_QUERY,
     { type },
-    { next: { revalidate: 60 } }
+    { next: { revalidate: 30 } }
   )) ?? [];
 
   const sections = Array.from(

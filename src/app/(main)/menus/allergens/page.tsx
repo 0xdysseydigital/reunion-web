@@ -23,7 +23,7 @@ export default async function AllergensPage() {
   const sanityItems: MenuItem[] = (await client.fetch(
     ALL_ITEMS_QUERY,
     {},
-    { next: { revalidate: 60 } }
+    { next: { revalidate: 30 } }
   )) ?? [];
 
   const items = sanityItems;

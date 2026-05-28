@@ -116,7 +116,7 @@ function EventRow({
 }
 
 export default async function EventsPage() {
-  const events: SanityEvent[] = await client.fetch(EVENTS_QUERY, {}, { next: { revalidate: 60 } });
+  const events: SanityEvent[] = await client.fetch(EVENTS_QUERY, {}, { next: { revalidate: 30 } });
 
   const now = new Date();
   const upcoming = events.filter((e) => new Date(e.date) >= now);
