@@ -1,6 +1,5 @@
 import FadeIn from "@/components/FadeIn";
 import AllergensFilter from "./AllergensFilter";
-import { menuItems as staticItems } from "@/data/menu";
 import { client } from "@/sanity/lib/client";
 import type { MenuItem } from "@/types/menu";
 
@@ -27,7 +26,7 @@ export default async function AllergensPage() {
     { next: { revalidate: 60 } }
   )) ?? [];
 
-  const items = sanityItems.length > 0 ? sanityItems : staticItems;
+  const items = sanityItems;
 
   return (
     <div className="min-h-screen flex flex-col">
