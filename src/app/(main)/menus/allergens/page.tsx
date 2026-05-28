@@ -21,11 +21,11 @@ export const metadata = {
 };
 
 export default async function AllergensPage() {
-  const sanityItems: MenuItem[] = await client.fetch(
+  const sanityItems: MenuItem[] = (await client.fetch(
     ALL_ITEMS_QUERY,
     {},
     { next: { revalidate: 60 } }
-  );
+  )) ?? [];
 
   const items = sanityItems.length > 0 ? sanityItems : staticItems;
 

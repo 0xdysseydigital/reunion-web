@@ -52,11 +52,11 @@ export default async function MenuTypePage({
 
   if (!VALID_TYPES.includes(type)) notFound();
 
-  const sanityItems: MenuItem[] = await client.fetch(
+  const sanityItems: MenuItem[] = (await client.fetch(
     ITEMS_QUERY,
     { type },
     { next: { revalidate: 60 } }
-  );
+  )) ?? [];
 
   // Fall back to static stub data until Sanity has content
   const items = sanityItems.length > 0

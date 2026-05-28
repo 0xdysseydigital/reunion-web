@@ -24,7 +24,7 @@ export default function AllergensFilter({ items }: { items: MenuItem[] }) {
         item.name.toLowerCase().includes(q) ||
         (item.description ?? "").toLowerCase().includes(q);
       const matchesAllergens = active.every((tag) =>
-        item.allergens.includes(tag)
+        (item.allergens ?? []).includes(tag)
       );
       return matchesSearch && matchesAllergens;
     });
