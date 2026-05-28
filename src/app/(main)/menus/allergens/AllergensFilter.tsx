@@ -3,11 +3,10 @@
 import { useState, useMemo } from "react";
 import FadeIn from "@/components/FadeIn";
 import MenuItemCard from "@/components/MenuItemCard";
-import { menuItems } from "@/data/menu";
 import { ALLERGENS } from "@/types/menu";
-import type { Allergen } from "@/types/menu";
+import type { MenuItem, Allergen } from "@/types/menu";
 
-export default function AllergensPage() {
+export default function AllergensFilter({ items }: { items: MenuItem[] }) {
   const [query, setQuery] = useState("");
   const [active, setActive] = useState<Allergen[]>([]);
 
@@ -19,41 +18,24 @@ export default function AllergensPage() {
 
   const filtered = useMemo(() => {
     const q = query.toLowerCase().trim();
-    return menuItems.filter((item) => {
+    return items.filter((item) => {
       const matchesSearch =
         !q ||
         item.name.toLowerCase().includes(q) ||
-        item.description.toLowerCase().includes(q);
+        (item.description ?? "").toLowerCase().includes(q);
       const matchesAllergens = active.every((tag) =>
         item.allergens.includes(tag)
       );
       return matchesSearch && matchesAllergens;
     });
-  }, [query, active]);
+  }, [items, query, active]);
 
   const filterCount = active.length + (query.trim() ? 1 : 0);
 
   return (
-    <div className="min-h-screen flex flex-col">
-
-      {/* Header */}
-      <div className="border-b border-brand-cream/10 px-6 md:px-10 py-12 md:py-16 flex flex-col items-center text-center">
-        <FadeIn direction="none">
-          <p className="font-platypi text-[11px] tracking-[0.3em] uppercase text-brand-cream/40 mb-4">
-            Dietary
-          </p>
-          <h1 className="font-servus font-light text-[clamp(2.5rem,6vw,4rem)] leading-none tracking-wide uppercase text-brand-cream/90">
-            Allergen Guide
-          </h1>
-          <p className="font-literata text-brand-cream/50 text-[15px] mt-5 max-w-sm leading-relaxed text-center mx-auto">
-            Select your dietary requirements below. We&apos;ll show every dish that meets all of them.
-          </p>
-        </FadeIn>
-      </div>
-
+    <>
       {/* Controls */}
       <FadeIn direction="up" delay={0.1} className="px-6 md:px-10 pt-10 pb-6 border-b border-brand-cream/10 flex flex-col gap-6">
-        {/* Search */}
         <input
           type="text"
           value={query}
@@ -62,7 +44,6 @@ export default function AllergensPage() {
           className="w-full bg-transparent border-b border-brand-cream/20 pb-2 font-literata text-[15px] text-brand-cream placeholder:text-brand-cream/25 outline-none focus:border-brand-cream/50 transition-colors duration-200"
         />
 
-        {/* Allergen toggles */}
         <div
           className="flex gap-2 overflow-x-auto pb-1"
           style={{ scrollbarWidth: "none" }}
@@ -85,7 +66,6 @@ export default function AllergensPage() {
           })}
         </div>
 
-        {/* Filter summary */}
         {filterCount > 0 && (
           <p className="font-platypi text-[10px] tracking-[0.15em] uppercase text-brand-cream/40">
             {filterCount} filter{filterCount !== 1 ? "s" : ""} active — showing {filtered.length} dish{filtered.length !== 1 ? "es" : ""}
@@ -118,7 +98,6 @@ export default function AllergensPage() {
           </div>
         )}
       </div>
-
-    </div>
+    </>
   );
 }

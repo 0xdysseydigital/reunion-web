@@ -4,7 +4,8 @@ import FadeIn from "@/components/FadeIn";
 import MenuContent from "./MenuContent";
 import { menuItems as staticItems } from "@/data/menu";
 import { MENU_LABELS } from "@/types/menu";
-import type { MenuType } from "@/types/menu";
+import type { MenuType, MenuItem } from "@/types/menu";
+import { client } from "@/sanity/lib/client";
 
 const VALID_TYPES: MenuType[] = ["brunch", "lunch", "dinner", "bar"];
 
@@ -14,6 +15,18 @@ const MENU_DESCRIPTIONS: Record<MenuType, string> = {
   dinner: "The full Reunion experience. Settle in.",
   bar: "Handcrafted from the first pour. Every glass, intentional.",
 };
+
+const ITEMS_QUERY = `*[_type == "menuItem" && menu_type == $type] | order(section asc, name asc) {
+  _id,
+  "slug": coalesce(slug.current, _id),
+  name,
+  description,
+  price,
+  "image": image.asset->url,
+  menu_type,
+  section,
+  allergens
+}`;
 
 export function generateStaticParams() {
   return VALID_TYPES.map((type) => ({ type }));
@@ -39,9 +52,17 @@ export default async function MenuTypePage({
 
   if (!VALID_TYPES.includes(type)) notFound();
 
-  const items = staticItems.filter((i) => i.menu_type === type);
+  const sanityItems: MenuItem[] = await client.fetch(
+    ITEMS_QUERY,
+    { type },
+    { next: { revalidate: 60 } }
+  );
 
-  // Preserve insertion order of sections
+  // Fall back to static stub data until Sanity has content
+  const items = sanityItems.length > 0
+    ? sanityItems
+    : staticItems.filter((i) => i.menu_type === type);
+
   const sections = Array.from(
     new Map(items.map((i) => [i.section, true])).keys()
   );

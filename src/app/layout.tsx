@@ -1,10 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import LoadingScreen from "@/components/LoadingScreen";
-import TransitionScreen from "@/components/TransitionScreen";
-import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata: Metadata = {
   title: "Reunion Cocktails + Provisions — Hershey, PA",
@@ -18,13 +13,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full antialiased">
       <body className="min-h-full flex flex-col bg-brand-bg text-brand-cream">
-        <LoadingScreen />
-        <TransitionScreen />
-        <SmoothScroll>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </SmoothScroll>
+        {children}
       </body>
     </html>
   );
