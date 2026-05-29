@@ -61,7 +61,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Text + buttons — anchored at 33% */}
-      <div className="absolute left-1/2 -translate-x-1/2 z-10 text-center flex flex-col items-center" style={{ top: "calc(33% - 25px)" }}>
+      <div className="absolute left-1/2 -translate-x-1/2 z-10 text-center flex flex-col items-center" style={{ top: "calc(33% - 50px)" }}>
         <AnimatedWord
           text="Reunion"
           baseDelay={3.7}
@@ -69,9 +69,9 @@ export default function Hero() {
         />
 
         <AnimatedWord
-          text="Cocktails + Kitchen"
+          text="cocktails + provisions"
           baseDelay={4.05}
-          className="font-platypi text-brand-cream/60 text-[clamp(0.75rem,1.6vw,1.1rem)] leading-[0.9] tracking-[0.3em] uppercase mt-3.5"
+          className="font-platypi text-brand-cream/60 text-[clamp(0.75rem,1.6vw,1.1rem)] leading-[0.9] tracking-[0.3em] mt-3.5"
         />
 
         <motion.div

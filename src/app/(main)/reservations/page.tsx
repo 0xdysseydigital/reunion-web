@@ -13,7 +13,7 @@ export default function ReservationsPage() {
     <div className="min-h-screen flex flex-col">
 
       {/* Header */}
-      <div className="border-b border-brand-cream/10 px-6 md:px-10 py-14 md:py-20 flex flex-col items-center text-center">
+      <div className="border-b border-brand-cream/10 px-6 md:px-10 py-16 md:py-24 flex flex-col items-center text-center">
         <FadeIn direction="none">
           <p className="font-platypi text-[11px] tracking-[0.3em] uppercase text-brand-cream/40 mb-4">
             Hummelstown, PA
@@ -25,8 +25,13 @@ export default function ReservationsPage() {
           </h1>
         </FadeIn>
         <FadeIn direction="none" delay={0.2}>
-          <p className="font-literata text-brand-cream/50 text-[18px] mt-6 max-w-md leading-relaxed">
-            Reserve your table online. For parties of 8 or more, please contact us directly.
+          <p className="font-literata text-brand-cream/70 text-[16px] mt-8 max-w-xl leading-relaxed">
+            Reservations will be available soon as we prepare to open on July 1st, 2026.
+          </p>
+        </FadeIn>
+        <FadeIn direction="none" delay={0.3}>
+          <p className="font-literata text-brand-cream/45 text-[16px] mt-4 max-w-xl leading-relaxed">
+            Reunion will feature a curated calendar of evenings, seasonal experiences, and limited-seat gatherings—each designed with intention. From handcrafted cocktails to private dining and live experiences, we're building something worth planning for.
           </p>
         </FadeIn>
       </div>
@@ -35,7 +40,7 @@ export default function ReservationsPage() {
       <div className="flex flex-col items-center gap-10 px-6 py-16 md:py-20">
         <FadeIn direction="none">
           <Button href={BOOKING_URL} external>
-            Book a Table
+            Starting July 1st
           </Button>
         </FadeIn>
 
