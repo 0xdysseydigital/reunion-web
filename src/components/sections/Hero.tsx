@@ -40,7 +40,7 @@ export default function Hero() {
         priority
       />
 
-      <div className="absolute inset-0 bg-black/50" />
+      <div className="absolute inset-0 bg-black/35" />
 
       {/* Logo — floats between nav and hero text */}
       <motion.div

@@ -11,25 +11,25 @@ const MENU_CARDS = [
     type: "brunch",
     label: "Brunch",
     tagline: "Weekends, done right.",
-    image: "/spaces/garden.png",
+    image: "/images/brunch-hero.jpg",
   },
   {
     type: "lunch",
     label: "Lunch",
     tagline: "Midday, elevated.",
-    image: "/spaces/lounge.jpg",
+    image: "/images/lunch-hero.jpg",
   },
   {
     type: "dinner",
     label: "Dinner",
     tagline: "The main event.",
-    image: "/images/info-interior.png",
+    image: "/images/dinner-hero.jpg",
   },
   {
     type: "bar",
     label: "Bar",
     tagline: "Craft cocktails + provisions.",
-    image: "/spaces/den.png",
+    image: "/images/bar-hero.jpg",
   },
 ];
 
@@ -47,7 +47,7 @@ export default function MenusPage() {
             Menus
           </h1>
           <p className="font-literata text-brand-cream/50 text-[18px] mt-6 max-w-sm leading-relaxed">
-            Four ways to experience Reunion. Seasonal ingredients, handcrafted cocktails, honest food.
+            Menus coming soon.
           </p>
         </FadeIn>
       </div>
