@@ -144,7 +144,7 @@ export default function Navbar() {
         <LogoLink />
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center list-none m-0 p-0" style={{ gap: "clamp(8px, 2vw, 48px)" }}>
+        <ul className="hidden md:flex items-center list-none m-0 p-0" style={{ gap: "clamp(20px, 3vw, 64px)" }}>
           {NAV_LINKS.map(({ label, href }) => (
             <li key={label}>
               <NavLink label={label} href={href} active={pathname === href} />
