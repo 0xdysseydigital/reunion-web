@@ -92,7 +92,7 @@ export default function MenuHubCard({ type, label, tagline, image }: Props) {
       <div
         className="absolute inset-0"
         style={{
-          backgroundColor: isHovered ? "rgba(0,0,0,0.32)" : "rgba(0,0,0,0.50)",
+          backgroundColor: isHovered ? "rgba(0,0,0,0.22)" : "rgba(0,0,0,0.40)",
           transition: "background-color 0.65s cubic-bezier(0.25,0.46,0.45,0.94)",
         }}
       />
