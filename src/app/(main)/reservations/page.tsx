@@ -32,7 +32,7 @@ export default function ReservationsPage() {
       </div>
 
       {/* CTA */}
-      <div className="flex-1 flex flex-col items-center justify-center gap-10 px-6 py-24">
+      <div className="flex flex-col items-center gap-10 px-6 py-16 md:py-20">
         <FadeIn direction="none">
           <Button href={BOOKING_URL} external>
             Book a Table
