@@ -14,14 +14,14 @@ export default function CC() {
         </FadeIn>
 
         <FadeIn delay={0.15}>
-          <p className="font-literata text-[15px] leading-[1.7] text-brand-cream/85 mb-6">
+          <p className="font-literata text-[18px] leading-[1.7] text-brand-cream/85 mb-6">
             At Reunion, we believe great hospitality lives at the intersection of
             craft, cuisine, and connection. The cocktail is the centerpiece—
             thoughtfully composed, balanced, and intentional—designed to live
             alongside shareable dishes that invite conversation and discovery.
           </p>
 
-          <p className="font-literata text-[15px] leading-[1.7] text-brand-cream/85">
+          <p className="font-literata text-[18px] leading-[1.7] text-brand-cream/85">
             A moody yet inviting warmth, layered with intentional lighting, creates a
             sense of renewal—mirroring the transformation of the space and the energy
             of Hershey&apos;s west end growth. Whether you&apos;re joining us for drinks
@@ -32,7 +32,7 @@ export default function CC() {
 
         <FadeIn delay={0.3}>
           <div className="mt-16 flex flex-col items-center gap-2">
-            <span className="font-literata text-[16px] text-brand-cream/75 tracking-normal">
+            <span className="font-literata text-[18px] text-brand-cream/75 tracking-normal">
               Explore Our Spaces
             </span>
             <span className="text-brand-cream/75 text-[18px]" aria-hidden="true">

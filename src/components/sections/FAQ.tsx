@@ -48,7 +48,7 @@ export default function FAQ() {
                     onClick={() => setOpenIndex(isOpen ? null : i)}
                     aria-expanded={isOpen}
                     aria-controls={`faq-answer-${i}`}
-                    className="w-full flex items-center justify-between py-4 font-literata text-[15px] text-brand-cream text-left cursor-pointer hover:text-brand-cream/70 transition-colors duration-200 focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-cream/40"
+                    className="w-full flex items-center justify-between py-4 font-literata text-[18px] text-brand-cream text-left cursor-pointer hover:text-brand-cream/70 transition-colors duration-200 focus:outline-none focus-visible:ring-1 focus-visible:ring-brand-cream/40"
                   >
                     <span>{q}</span>
                     <span
@@ -63,7 +63,7 @@ export default function FAQ() {
                   id={`faq-answer-${i}`}
                   className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-96 pb-5" : "max-h-0"}`}
                 >
-                  <p className="font-literata text-[13px] text-brand-cream/65 leading-[1.7]">
+                  <p className="font-literata text-[15px] text-brand-cream/65 leading-[1.7]">
                     {a}
                   </p>
                 </dd>

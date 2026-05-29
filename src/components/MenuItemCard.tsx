@@ -43,7 +43,7 @@ export default function MenuItemCard({
         </div>
 
         {/* Description */}
-        <p className="font-literata text-[14px] text-brand-cream/55 leading-relaxed line-clamp-2">
+        <p className="font-literata text-[16px] text-brand-cream/55 leading-relaxed line-clamp-2">
           {item.description}
         </p>
 

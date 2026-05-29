@@ -38,7 +38,7 @@ export default async function AllergensPage() {
           <h1 className="font-servus font-light text-[clamp(2.5rem,6vw,4rem)] leading-none tracking-wide uppercase text-brand-cream/90">
             Allergen Guide
           </h1>
-          <p className="font-literata text-brand-cream/50 text-[15px] mt-5 max-w-sm leading-relaxed text-center mx-auto">
+          <p className="font-literata text-brand-cream/50 text-[18px] mt-5 max-w-sm leading-relaxed text-center mx-auto">
             Select your dietary requirements below. We&apos;ll show every dish that meets all of them.
           </p>
         </FadeIn>

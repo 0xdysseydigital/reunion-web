@@ -83,7 +83,7 @@ export default async function MenuTypePage({
           <h1 className="font-servus font-light text-[clamp(2.5rem,6vw,4rem)] leading-none tracking-wide uppercase text-brand-cream/90">
             {MENU_LABELS[type]}
           </h1>
-          <p className="font-literata text-brand-cream/50 text-[15px] mt-5 max-w-sm leading-relaxed">
+          <p className="font-literata text-brand-cream/50 text-[18px] mt-5 max-w-sm leading-relaxed">
             {MENU_DESCRIPTIONS[type]}
           </p>
         </FadeIn>
@@ -95,7 +95,7 @@ export default async function MenuTypePage({
             <p className="font-platypi text-[11px] tracking-[0.3em] uppercase text-brand-cream/30 text-center">
               Menu coming soon
             </p>
-            <p className="font-literata text-brand-cream/40 text-[15px] mt-4 text-center max-w-xs leading-relaxed">
+            <p className="font-literata text-brand-cream/40 text-[18px] mt-4 text-center max-w-xs leading-relaxed">
               Check back soon or ask your server for today's selections.
             </p>
           </FadeIn>

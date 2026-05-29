@@ -95,7 +95,7 @@ function EventRow({
           {formatDate(event.date, event.endTime)}
         </p>
         {event.description && (
-          <p className="font-literata text-[16px] text-brand-cream/70 leading-relaxed max-w-md">
+          <p className="font-literata text-[18px] text-brand-cream/70 leading-relaxed max-w-md">
             {event.description}
           </p>
         )}
@@ -138,7 +138,7 @@ export default async function EventsPage() {
           </h1>
         </FadeIn>
         <FadeIn direction="none" delay={0.2}>
-          <p className="font-literata text-brand-cream/50 text-[15px] mt-6 max-w-lg leading-relaxed">
+          <p className="font-literata text-brand-cream/50 text-[18px] mt-6 max-w-lg leading-relaxed">
             Special evenings, live music, and reasons to gather. Check back often.
           </p>
         </FadeIn>
@@ -155,7 +155,7 @@ export default async function EventsPage() {
             <p className="font-platypi text-[11px] tracking-[0.3em] uppercase text-brand-cream/30 text-center">
               Nothing scheduled yet
             </p>
-            <p className="font-literata text-brand-cream/40 text-[15px] mt-4 text-center max-w-sm leading-relaxed">
+            <p className="font-literata text-brand-cream/40 text-[18px] mt-4 text-center max-w-sm leading-relaxed">
               Events are added regularly. Follow us on Instagram for the latest announcements.
             </p>
           </FadeIn>

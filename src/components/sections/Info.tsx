@@ -31,7 +31,7 @@ export default function Info() {
             Location &amp; Hours
           </h2>
 
-          <p className="font-literata text-[15px] text-brand-cream/85 mb-8">
+          <p className="font-literata text-[18px] text-brand-cream/85 mb-8">
             1201 W Chocolate Ave, Hummelstown, PA 17036
           </p>
 
@@ -42,7 +42,7 @@ export default function Info() {
             <HoursRow day="Sunday" hours="Brunch 9 AM – 3 PM" />
           </div>
 
-          <p className="font-literata text-[13px] italic text-brand-cream/55 mb-10">
+          <p className="font-literata text-[15px] italic text-brand-cream/55 mb-10">
             Our Coming Fare Kitchen Menu is available during the final two hours of
             dinner service each night.
           </p>
@@ -65,8 +65,8 @@ export default function Info() {
 function HoursRow({ day, hours }: { day: string; hours: string }) {
   return (
     <div>
-      <span className="font-literata text-[13px] font-bold text-brand-cream">{day}: </span>
-      <span className="font-literata text-[13px] text-brand-cream/70">{hours}</span>
+      <span className="font-literata text-[15px] font-bold text-brand-cream">{day}: </span>
+      <span className="font-literata text-[15px] text-brand-cream/70">{hours}</span>
     </div>
   );
 }

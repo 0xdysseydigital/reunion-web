@@ -46,7 +46,7 @@ export default function MenusPage() {
           <h1 className="font-servus font-light text-[clamp(2.5rem,6vw,4rem)] leading-none tracking-wide uppercase text-brand-cream/90">
             Menus
           </h1>
-          <p className="font-literata text-brand-cream/50 text-[15px] mt-6 max-w-sm leading-relaxed">
+          <p className="font-literata text-brand-cream/50 text-[18px] mt-6 max-w-sm leading-relaxed">
             Four ways to experience Reunion. Seasonal ingredients, handcrafted cocktails, honest food.
           </p>
         </FadeIn>
@@ -70,7 +70,7 @@ export default function MenusPage() {
           <h2 className="font-servus font-light text-[clamp(1.5rem,3vw,2.2rem)] leading-none uppercase text-brand-cream/80 mb-3">
             Allergen Guide
           </h2>
-          <p className="font-literata text-[14px] text-brand-cream/40 mt-1 mb-8 max-w-xs leading-relaxed">
+          <p className="font-literata text-[16px] text-brand-cream/40 mt-1 mb-8 max-w-xs leading-relaxed">
             Filter every dish by dietary need across all menus.
           </p>
           <Button href="/menus/allergens">View Allergen Guide</Button>

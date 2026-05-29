@@ -16,7 +16,7 @@ export default function ReservationsPage() {
         <h1 className="font-servus font-light text-[clamp(2.5rem,6vw,4rem)] leading-none tracking-wide uppercase text-brand-cream/90">
           Reservations
         </h1>
-        <p className="font-literata text-brand-cream/50 text-[15px] mt-6 max-w-md leading-relaxed">
+        <p className="font-literata text-brand-cream/50 text-[18px] mt-6 max-w-md leading-relaxed">
           Reserve your table online. For parties of 8 or more, please contact us directly.
         </p>
       </div>

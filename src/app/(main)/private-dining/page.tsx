@@ -73,7 +73,7 @@ export default function PrivateDiningPage() {
           </h1>
         </FadeIn>
         <FadeIn direction="none" delay={0.2}>
-          <p className="font-literata text-brand-cream/50 text-[15px] mt-6 max-w-lg leading-relaxed">
+          <p className="font-literata text-brand-cream/50 text-[18px] mt-6 max-w-lg leading-relaxed">
             Five distinct spaces. Each one designed for a different kind of evening.
             Reach out and we'll make it happen.
           </p>
@@ -104,7 +104,7 @@ export default function PrivateDiningPage() {
               <h2 className="font-servus font-light text-[clamp(1.8rem,4vw,3rem)] leading-none tracking-wide uppercase text-brand-cream mb-6">
                 {space.label}
               </h2>
-              <p className={`font-literata text-[16px] text-brand-cream/70 leading-relaxed max-w-md ${space.cta ? "mb-10" : ""}`}>
+              <p className={`font-literata text-[18px] text-brand-cream/70 leading-relaxed max-w-md ${space.cta ? "mb-10" : ""}`}>
                 {space.description}
               </p>
               {space.cta && (
