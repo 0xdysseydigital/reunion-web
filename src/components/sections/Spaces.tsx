@@ -115,9 +115,8 @@ export default function Spaces() {
                     fill
                     className="object-cover"
                     style={{
-                      transform: isHovered ? "scale(1.07)" : "scale(1)",
                       filter: isHovered ? "brightness(1.2)" : "brightness(1)",
-                      transition: "transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+                      transition: "filter 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
                     }}
                   />
                   {/* Dark overlay */}
