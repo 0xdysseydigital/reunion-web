@@ -80,7 +80,7 @@ function NavLink({ label, href, active }: { label: string; href: string; active:
       href={href}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
-      style={{ fontSize: "clamp(11px, 1.5vw, 21px)" }}
+      style={{ fontSize: "clamp(13px, 1.5vw, 21px)" }}
       className={`relative font-servus font-normal tracking-[0.06em] transition-colors duration-200 ${
         active ? "text-brand-cream/35" : "text-brand-cream/80 hover:text-brand-cream"
       }`}

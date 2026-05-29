@@ -47,7 +47,7 @@ export default function Info() {
             dinner service each night.
           </p>
 
-          <div className="flex flex-col xs:flex-row gap-4">
+          <div className="flex flex-col md:flex-row md:items-start gap-4">
             <Button href="/reservations">Book a Reservation</Button>
             <Button
               href="https://maps.google.com/?q=1201+W+Chocolate+Ave+Hummelstown+PA+17036"
