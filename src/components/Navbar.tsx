@@ -80,7 +80,8 @@ function NavLink({ label, href, active }: { label: string; href: string; active:
       href={href}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
-      className={`relative font-servus text-[21px] font-normal tracking-[0.06em] transition-colors duration-200 ${
+      style={{ fontSize: "clamp(11px, 1.5vw, 21px)" }}
+      className={`relative font-servus font-normal tracking-[0.06em] transition-colors duration-200 ${
         active ? "text-brand-cream/35" : "text-brand-cream/80 hover:text-brand-cream"
       }`}
     >
@@ -143,7 +144,7 @@ export default function Navbar() {
         <LogoLink />
 
         {/* Desktop links */}
-        <ul className="hidden md:flex items-center gap-12 list-none m-0 p-0">
+        <ul className="hidden md:flex items-center list-none m-0 p-0" style={{ gap: "clamp(8px, 2vw, 48px)" }}>
           {NAV_LINKS.map(({ label, href }) => (
             <li key={label}>
               <NavLink label={label} href={href} active={pathname === href} />
