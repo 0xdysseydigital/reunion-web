@@ -2,7 +2,7 @@ import FadeIn from "@/components/FadeIn";
 import Button from "@/components/Button";
 
 // ← Swap this URL when the booking link is confirmed
-const BOOKING_URL = "#";
+const BOOKING_URL = "https://www.tbdine.com/hershey/restaurants/reunion-cocktails-provisions?language=en-us";
 
 export const metadata = {
   title: "Reservations — Reunion Cocktails + Provisions",
