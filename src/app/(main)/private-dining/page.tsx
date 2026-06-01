@@ -28,7 +28,7 @@ const SPACES = [
     cta: false,
     eyebrow: "Space",
     description:
-      "Low light, deep seating, and a soundtrack that sets the tone. The Lounge is where deals get made and birthdays get remembered. Intimate enough for a private party, refined enough for any occasion.",
+      "Low light, deep seating, and a soundtrack that knows when to step back. The Lounge is built for settling in — an atmosphere that shifts naturally from afternoon into evening.",
   },
   {
     id: "the-den",
@@ -37,7 +37,7 @@ const SPACES = [
     cta: false,
     eyebrow: "Space",
     description:
-      "Tucked away and entirely yours. The Den offers a cozy enclosed setting ideal for smaller groups who want the full Reunion experience without distraction — think private tastings, rehearsal dinners, or executive lunches.",
+      "Tucked away from the main floor, The Den is a smaller, warmer corner of Reunion. Stone, wood, and low ceilings create a sense of enclosure that feels intentional — a room that holds conversation.",
   },
   {
     id: "the-garden",
@@ -46,7 +46,7 @@ const SPACES = [
     cta: false,
     eyebrow: "Space",
     description:
-      "Alfresco dining at its finest. The Garden brings the outside in — seasonal, lush, and unlike anywhere else in Hummelstown. An ideal backdrop for warm-weather events, cocktail receptions, and anything that calls for fresh air.",
+      "When the season allows, The Garden opens Reunion to the outside. Lush and unhurried, it's the kind of outdoor space that makes you forget there's anywhere else to be.",
   },
 ];
 

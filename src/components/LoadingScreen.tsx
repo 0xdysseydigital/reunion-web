@@ -87,7 +87,7 @@ function AnimatedLogo({ s }: { s: number }) {
         initial={{ opacity: 0, scale: 0.82 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.9 * s, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.1 * s }}
-        className="w-[148px] h-[148px] relative"
+        className="w-[110px] h-[110px] relative"
       >
         <Image src="/logo.png" alt="Reunion" fill className="object-contain" priority />
       </motion.div>
