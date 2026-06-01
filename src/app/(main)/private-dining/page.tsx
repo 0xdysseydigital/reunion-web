@@ -10,7 +10,7 @@ const SPACES = [
     cta: true,
     eyebrow: "Private Space",
     description:
-      "Warm shelves, quiet corners, and a sophistication that invites lingering. The Library is a private sanctuary for those who appreciate atmosphere as much as cuisine — perfect for intimate gatherings of discerning guests.",
+      "Seats up to 14 guests in warmth and quiet sophistication. The Library may be reserved on its own or combined with The Atrium for larger gatherings — an intimate setting where atmosphere and detail are part of the experience.",
   },
   {
     id: "the-atrium",
@@ -19,7 +19,7 @@ const SPACES = [
     cta: true,
     eyebrow: "Private Space",
     description:
-      "Light pours in from every angle in this airy, open-plan space. The Atrium accommodates larger events with elegance — wedding receptions, milestone celebrations, and corporate dinners that deserve a grander stage.",
+      "Accommodates up to 32 guests with flexible seating arrangements, making it ideal for receptions, milestone celebrations, and corporate dinners. A 65-inch display is available for presentations or personalized touches. Reserve separately or alongside The Library.",
   },
   {
     id: "the-lounge",
@@ -51,6 +51,8 @@ const SPACES = [
 ];
 
 const EMAIL = "manager@reunioncocktailsprovisions.com";
+const PHONE = "(717) 918-0018";
+const PHONE_URL = "tel:+17179180018";
 
 export const metadata = {
   title: "Reunion's Spaces — Reunion Cocktails + Provisions",
@@ -73,9 +75,13 @@ export default function PrivateDiningPage() {
           </h1>
         </FadeIn>
         <FadeIn direction="none" delay={0.2}>
-          <p className="font-literata text-brand-cream/50 text-[18px] mt-6 max-w-lg leading-relaxed">
-            Five distinct spaces. Each one designed for a different kind of evening.
-            Reach out and we'll make it happen.
+          <p className="font-literata text-brand-cream/70 text-[16px] mt-8 max-w-xl leading-relaxed">
+            Some moments are meant to be set apart. Reunion's private dining experiences are designed to help you connect, bringing your group together in a space where ambiance, conversation, and detail come together seamlessly.
+          </p>
+        </FadeIn>
+        <FadeIn direction="none" delay={0.3}>
+          <p className="font-literata text-brand-cream/45 text-[16px] mt-4 max-w-xl leading-relaxed">
+            The Library and the Atrium offer two distinct private dining settings that may be reserved separately or combined for larger gatherings. To begin planning, connect with our team at {PHONE}.
           </p>
         </FadeIn>
       </div>
@@ -108,8 +114,14 @@ export default function PrivateDiningPage() {
                 {space.description}
               </p>
               {space.cta && (
-                <div>
-                  <Button href={mailto} external>Contact</Button>
+                <div className="flex flex-col gap-4">
+                  <Button href={PHONE_URL} external>{PHONE}</Button>
+                  <a
+                    href={mailto}
+                    className="font-platypi text-[10px] tracking-[0.25em] uppercase text-brand-cream/35 hover:text-brand-cream/60 transition-colors duration-200"
+                  >
+                    {EMAIL}
+                  </a>
                 </div>
               )}
             </FadeIn>
