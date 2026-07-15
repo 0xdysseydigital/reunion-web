@@ -138,8 +138,11 @@ export default async function EventsPage() {
           </h1>
         </FadeIn>
         <FadeIn direction="none" delay={0.2}>
-          <p className="font-literata text-brand-cream/50 text-[18px] mt-6 max-w-lg leading-relaxed">
-            Special evenings, live music, and reasons to gather. Check back often.
+          <p className="font-literata text-brand-cream/50 text-[18px] mt-6 max-w-2xl leading-relaxed">
+            Reunion hosts an evolving calendar of curated evenings, seasonal experiences,
+            special gatherings, and tasting events—each thoughtfully designed to bring
+            people together. From cocktail features and live music to private dining and
+            limited‑seat experiences, each gathering offers more than a night out.
           </p>
         </FadeIn>
       </div>
