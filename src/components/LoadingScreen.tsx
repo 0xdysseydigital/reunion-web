@@ -4,12 +4,16 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
-// scale=1 → initial load (3.3s), scale=0.7 → page transitions (~2.3s)
+// scale=1 → initial load (1.5s), scale=0.7 → page transitions (~1.05s)
+const BASE_MS = 1500;
+const ORIGINAL_BASE_MS = 3300; // internal animation timings below were tuned against this
+
 export function LoadingOverlay({ scale = 1, onHide }: { scale?: number; onHide?: () => void }) {
   const [visible, setVisible] = useState(true);
 
-  const s = scale;
-  const timeout = Math.round(3300 * s);
+  // rescale so the pathLength/bar/logo animations still resolve within the new base duration
+  const s = scale * (BASE_MS / ORIGINAL_BASE_MS);
+  const timeout = Math.round(BASE_MS * scale);
   const exitDuration = 0.9 * s;
 
   useEffect(() => {
