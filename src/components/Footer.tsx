@@ -1,9 +1,10 @@
 import Link from "next/link";
+import { RESERVATIONS_URL } from "@/lib/constants";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Menus", href: "/menus" },
-  { label: "Reservations", href: "/reservations" },
+  { label: "Reservations", href: RESERVATIONS_URL, external: true },
   { label: "FAQs", href: "/#faq" },
   { label: "Contact", href: "/contact" },
 ];
@@ -26,14 +27,25 @@ export default function Footer() {
             Navigation
           </h3>
           <ul className="space-y-2 list-none p-0 m-0">
-            {NAV_LINKS.map(({ label, href }) => (
+            {NAV_LINKS.map(({ label, href, external }) => (
               <li key={label}>
-                <Link
-                  href={href}
-                  className="font-literata text-[12px] text-brand-cream/70 hover:text-brand-cream transition-colors duration-200"
-                >
-                  {label}
-                </Link>
+                {external ? (
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-literata text-[12px] text-brand-cream/70 hover:text-brand-cream transition-colors duration-200"
+                  >
+                    {label}
+                  </a>
+                ) : (
+                  <Link
+                    href={href}
+                    className="font-literata text-[12px] text-brand-cream/70 hover:text-brand-cream transition-colors duration-200"
+                  >
+                    {label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>

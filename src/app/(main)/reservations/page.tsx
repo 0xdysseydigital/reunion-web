@@ -1,8 +1,6 @@
 import FadeIn from "@/components/FadeIn";
 import Button from "@/components/Button";
-
-// ← Swap this URL when the booking link is confirmed
-const BOOKING_URL = "https://www.tbdine.com/hershey/restaurants/reunion-cocktails-provisions?language=en-us";
+import { RESERVATIONS_URL } from "@/lib/constants";
 
 export const metadata = {
   title: "Reservations — Reunion Cocktails + Provisions",
@@ -39,7 +37,7 @@ export default function ReservationsPage() {
       {/* CTA */}
       <div className="flex flex-col items-center gap-10 px-6 py-16 md:py-20">
         <FadeIn direction="none">
-          <Button href={BOOKING_URL} external>
+          <Button href={RESERVATIONS_URL} external>
             Starting July 1st
           </Button>
         </FadeIn>

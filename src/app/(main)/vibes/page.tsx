@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import FadeIn from "@/components/FadeIn";
 import Button from "@/components/Button";
+import { RESERVATIONS_URL } from "@/lib/constants";
 
 // ─── Image Scene ────────────────────────────────────────────────────────────
 
@@ -141,7 +142,7 @@ export default function VibesPage() {
             <p className="font-platypi text-[11px] tracking-[0.3em] uppercase text-brand-cream/35">
               1201 W Chocolate Ave, Hummelstown, PA 17036
             </p>
-            <Button href="/reservations">Reserve a Table</Button>
+            <Button href={RESERVATIONS_URL} external>Reserve a Table</Button>
           </div>
         </FadeIn>
       </section>

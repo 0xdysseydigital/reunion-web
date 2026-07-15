@@ -5,9 +5,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, useAnimate, AnimatePresence } from "framer-motion";
+import { RESERVATIONS_URL } from "@/lib/constants";
 
 const NAV_LINKS = [
-  { label: "RESERVATIONS", href: "/reservations" },
+  { label: "RESERVATIONS", href: RESERVATIONS_URL, external: true },
   { label: "MENUS", href: "/menus" },
   { label: "VIBES", href: "/vibes" },
   { label: "PRIVATE DINING", href: "/private-dining" },
@@ -61,7 +62,7 @@ function LogoLink() {
   );
 }
 
-function NavLink({ label, href, active }: { label: string; href: string; active: boolean }) {
+function NavLink({ label, href, active, external }: { label: string; href: string; active: boolean; external?: boolean }) {
   const [scope, animate] = useAnimate();
 
   const handleEnter = () => {
@@ -75,22 +76,44 @@ function NavLink({ label, href, active }: { label: string; href: string; active:
     if (scope.current) scope.current.style.transformOrigin = "left";
   };
 
+  const className = `relative font-servus font-normal tracking-[0.06em] transition-colors duration-200 ${
+    active ? "text-brand-cream/35" : "text-brand-cream/80 hover:text-brand-cream"
+  }`;
+  const underline = (
+    <span
+      ref={scope}
+      className="absolute bottom-0 left-0 w-full h-[1px] bg-brand-cream origin-left"
+      style={{ transform: "scaleX(0)" }}
+    />
+  );
+
+  if (external) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        onMouseEnter={handleEnter}
+        onMouseLeave={handleLeave}
+        style={{ fontSize: "clamp(13px, 1.5vw, 21px)" }}
+        className={className}
+      >
+        {label}
+        {underline}
+      </a>
+    );
+  }
+
   return (
     <Link
       href={href}
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       style={{ fontSize: "clamp(13px, 1.5vw, 21px)" }}
-      className={`relative font-servus font-normal tracking-[0.06em] transition-colors duration-200 ${
-        active ? "text-brand-cream/35" : "text-brand-cream/80 hover:text-brand-cream"
-      }`}
+      className={className}
     >
       {label}
-      <span
-        ref={scope}
-        className="absolute bottom-0 left-0 w-full h-[1px] bg-brand-cream origin-left"
-        style={{ transform: "scaleX(0)" }}
-      />
+      {underline}
     </Link>
   );
 }
@@ -145,9 +168,9 @@ export default function Navbar() {
 
         {/* Desktop links */}
         <ul className="hidden md:flex items-center list-none m-0 p-0" style={{ gap: "clamp(20px, 3vw, 64px)" }}>
-          {NAV_LINKS.map(({ label, href }) => (
+          {NAV_LINKS.map(({ label, href, external }) => (
             <li key={label}>
-              <NavLink label={label} href={href} active={pathname === href} />
+              <NavLink label={label} href={href} active={pathname === href} external={external} />
             </li>
           ))}
         </ul>
@@ -209,29 +232,36 @@ export default function Navbar() {
 
               {/* Links */}
               <div className="flex flex-col flex-1 px-10 pt-4">
-                {NAV_LINKS.map(({ label, href }, i) => (
-                  <motion.div
-                    key={label}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{
-                      delay: 0.05 + i * 0.07,
-                      duration: 0.4,
-                      ease: [0.25, 0.46, 0.45, 0.94],
-                    }}
-                  >
-                    <Link
-                      href={href}
-                      className={`block py-5 font-servus font-light text-[1.75rem] leading-none tracking-wide uppercase border-b border-brand-cream/10 transition-colors duration-200 ${
-                        pathname === href
-                          ? "text-brand-cream/30"
-                          : "text-brand-cream/75 hover:text-brand-cream"
-                      }`}
+                {NAV_LINKS.map(({ label, href, external }, i) => {
+                  const linkClassName = `block py-5 font-servus font-light text-[1.75rem] leading-none tracking-wide uppercase border-b border-brand-cream/10 transition-colors duration-200 ${
+                    pathname === href
+                      ? "text-brand-cream/30"
+                      : "text-brand-cream/75 hover:text-brand-cream"
+                  }`;
+
+                  return (
+                    <motion.div
+                      key={label}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{
+                        delay: 0.05 + i * 0.07,
+                        duration: 0.4,
+                        ease: [0.25, 0.46, 0.45, 0.94],
+                      }}
                     >
-                      {label}
-                    </Link>
-                  </motion.div>
-                ))}
+                      {external ? (
+                        <a href={href} target="_blank" rel="noopener noreferrer" className={linkClassName}>
+                          {label}
+                        </a>
+                      ) : (
+                        <Link href={href} className={linkClassName}>
+                          {label}
+                        </Link>
+                      )}
+                    </motion.div>
+                  );
+                })}
               </div>
 
               {/* Social icons */}

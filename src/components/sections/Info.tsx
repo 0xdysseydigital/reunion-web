@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Button from "@/components/Button";
 import FadeIn from "@/components/FadeIn";
+import { RESERVATIONS_URL } from "@/lib/constants";
 
 export default function Info() {
   return (
@@ -48,7 +49,7 @@ export default function Info() {
           </p>
 
           <div className="flex flex-col md:flex-row md:items-start gap-4">
-            <Button href="/reservations">Book a Reservation</Button>
+            <Button href={RESERVATIONS_URL} external>Book a Reservation</Button>
             <Button
               href="https://maps.google.com/?q=1201+W+Chocolate+Ave+Hummelstown+PA+17036"
               external
