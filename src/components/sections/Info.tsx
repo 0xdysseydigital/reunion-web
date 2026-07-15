@@ -43,7 +43,7 @@ export default function Info() {
           </div>
 
           <p className="font-literata text-[15px] italic text-brand-cream/55 mb-10">
-            Our Coming Fare Kitchen Menu is available during the final two hours of
+            Our Evening Fare Kitchen Menu is available during the final two hours of
             dinner service each night.
           </p>
 
