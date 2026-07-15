@@ -42,26 +42,8 @@ export default function Hero() {
 
       <div className="absolute inset-0 bg-black/35" />
 
-      {/* Logo — floats between nav and hero text */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 0.5, scale: 1 }}
-        transition={{ delay: 3.6, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
-        className="absolute left-1/2 -translate-x-1/2 z-10"
-        style={{ top: "calc(18% - 25px)" }}
-      >
-        <Image
-          src="/logo.png"
-          alt="Reunion"
-          width={40}
-          height={40}
-          className="w-[40px] h-auto"
-          priority
-        />
-      </motion.div>
-
       {/* Text + buttons — anchored at 33% */}
-      <div className="absolute left-1/2 -translate-x-1/2 z-10 text-center flex flex-col items-center" style={{ top: "calc(33% - 50px)" }}>
+      <div className="absolute left-1/2 -translate-x-1/2 z-10 text-center flex flex-col items-center" style={{ top: "calc(33% - 53px)" }}>
         <AnimatedWord
           text="Reunion"
           baseDelay={3.7}
