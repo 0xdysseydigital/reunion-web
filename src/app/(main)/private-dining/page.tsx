@@ -46,17 +46,17 @@ export default function PrivateDiningPage() {
           </h1>
         </FadeIn>
         <FadeIn direction="none" delay={0.2}>
-          <p className="font-literata text-brand-cream/70 text-[16px] mt-8 max-w-3xl leading-relaxed">
+          <p className="font-literata text-brand-cream/70 text-[16px] mt-8 max-w-4xl leading-relaxed">
             Some moments are meant to be set apart. Reunion's private dining experiences are designed to help you connect, bringing your group together in a space where ambiance, conversation, and detail come together seamlessly.
           </p>
         </FadeIn>
         <FadeIn direction="none" delay={0.3}>
-          <p className="font-literata text-brand-cream/45 text-[16px] mt-4 max-w-3xl leading-relaxed">
+          <p className="font-literata text-brand-cream/45 text-[16px] mt-4 max-w-4xl leading-relaxed">
             The Library and the Atrium offer two distinct private dining settings that may be reserved separately or combined for larger gatherings. The Library seats up to 14 guests, while the Atrium accommodates up to 32, with flexible seating arrangements available. A 65‑inch television is available for seamless presentations or personalized touches.
           </p>
         </FadeIn>
         <FadeIn direction="none" delay={0.4}>
-          <p className="font-literata text-brand-cream/45 text-[16px] mt-4 max-w-3xl leading-relaxed">
+          <p className="font-literata text-brand-cream/45 text-[16px] mt-4 max-w-4xl leading-relaxed">
             To begin planning your private dining experience, we invite you to connect with our team at {PHONE} for personalized assistance.
           </p>
         </FadeIn>
