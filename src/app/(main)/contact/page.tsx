@@ -37,84 +37,41 @@ export default function ContactPage() {
         </FadeIn>
       </div>
 
-      {/* Details */}
-      <div className="flex-1 flex flex-col items-center gap-16 px-6 py-16 md:py-24">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-16 gap-y-12 max-w-2xl w-full text-center sm:text-left">
+      {/* Details — presented like a menu list */}
+      <div className="flex-1 flex flex-col items-center px-6 py-16 md:py-24">
+        <div className="max-w-xl w-full">
           <FadeIn direction="none">
-            <ContactBlock label="Address">
-              <a
-                href={MAPS_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-literata text-[18px] text-brand-cream/85 hover:text-brand-cream transition-colors duration-200"
-              >
-                {ADDRESS}
-              </a>
-            </ContactBlock>
+            <p className="font-platypi text-[11px] tracking-[0.3em] uppercase text-brand-cream/40 border-b border-brand-cream/20 pb-3">
+              Details
+            </p>
           </FadeIn>
 
-          <FadeIn direction="none" delay={0.05}>
-            <ContactBlock label="Phone">
-              <a
-                href={PHONE_URL}
-                className="font-literata text-[18px] text-brand-cream/85 hover:text-brand-cream transition-colors duration-200"
-              >
-                {PHONE}
-              </a>
-            </ContactBlock>
-          </FadeIn>
+          <div>
+            <ContactRow delay={0.05} label="Address" value={ADDRESS} href={MAPS_URL} external />
+            <ContactRow delay={0.1} label="Phone" value={PHONE} href={PHONE_URL} />
+            <ContactRow delay={0.15} label="Email" value={EMAIL} href={`mailto:${EMAIL}`} />
+            <ContactRow delay={0.2} label="Instagram" value="@reunioncocktailsprovisions" href={INSTAGRAM_URL} external />
+            <ContactRow delay={0.25} label="Facebook" value="Reunion Cocktails + Provisions" href={FACEBOOK_URL} external />
+          </div>
 
-          <FadeIn direction="none" delay={0.1}>
-            <ContactBlock label="Email">
-              <a
-                href={`mailto:${EMAIL}`}
-                className="font-literata text-[18px] text-brand-cream/85 hover:text-brand-cream transition-colors duration-200 break-words"
-              >
-                {EMAIL}
-              </a>
-            </ContactBlock>
-          </FadeIn>
-
-          <FadeIn direction="none" delay={0.15}>
-            <ContactBlock label="Follow">
-              <div className="flex flex-col gap-1 items-center sm:items-start">
-                <a
-                  href={INSTAGRAM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-literata text-[18px] text-brand-cream/85 hover:text-brand-cream transition-colors duration-200"
-                >
-                  Instagram
-                </a>
-                <a
-                  href={FACEBOOK_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-literata text-[18px] text-brand-cream/85 hover:text-brand-cream transition-colors duration-200"
-                >
-                  Facebook
-                </a>
-              </div>
-            </ContactBlock>
-          </FadeIn>
-        </div>
-
-        <FadeIn direction="none" delay={0.2}>
-          <div className="text-center">
-            <p className="font-platypi text-[11px] tracking-[0.3em] uppercase text-brand-cream/40 mb-3">
+          <FadeIn direction="none" delay={0.3}>
+            <p className="font-platypi text-[11px] tracking-[0.3em] uppercase text-brand-cream/40 border-b border-brand-cream/20 pb-3 mt-12">
               Hours
             </p>
-            <div className="space-y-1.5">
-              <HoursRow day="Monday – Thursday" hours="Lunch 11:30 AM – 3 PM  |  Dinner 5 PM – 11 PM" />
-              <HoursRow day="Friday" hours="Lunch 11:30 AM – 3 PM  |  Dinner 5 PM – 12 AM" />
-              <HoursRow day="Saturday" hours="Brunch 9 AM – 3 PM  |  Dinner 5 PM – 12 AM" />
-              <HoursRow day="Sunday" hours="Brunch 9 AM – 3 PM" />
-            </div>
-          </div>
-        </FadeIn>
+          </FadeIn>
 
-        <FadeIn direction="none" delay={0.25}>
-          <Button href={RESERVATIONS_URL} external>Book a Reservation</Button>
+          <div>
+            <HoursRow delay={0.3} day="Monday – Thursday" hours="Lunch 11:30 AM – 3 PM  |  Dinner 5 PM – 11 PM" />
+            <HoursRow delay={0.32} day="Friday" hours="Lunch 11:30 AM – 3 PM  |  Dinner 5 PM – 12 AM" />
+            <HoursRow delay={0.34} day="Saturday" hours="Brunch 9 AM – 3 PM  |  Dinner 5 PM – 12 AM" />
+            <HoursRow delay={0.36} day="Sunday" hours="Brunch 9 AM – 3 PM" />
+          </div>
+        </div>
+
+        <FadeIn direction="none" delay={0.4}>
+          <div className="mt-16">
+            <Button href={RESERVATIONS_URL} external>Book a Reservation</Button>
+          </div>
         </FadeIn>
       </div>
 
@@ -122,22 +79,48 @@ export default function ContactPage() {
   );
 }
 
-function ContactBlock({ label, children }: { label: string; children: React.ReactNode }) {
+function ContactRow({
+  label,
+  value,
+  href,
+  external = false,
+  delay = 0,
+}: {
+  label: string;
+  value: string;
+  href: string;
+  external?: boolean;
+  delay?: number;
+}) {
   return (
-    <div>
-      <p className="font-platypi text-[11px] tracking-[0.3em] uppercase text-brand-cream/40 mb-3">
-        {label}
-      </p>
-      {children}
-    </div>
+    <FadeIn direction="none" delay={delay}>
+      <a
+        href={href}
+        {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        className="flex items-baseline justify-between gap-6 py-5 border-b border-brand-cream/10 group"
+      >
+        <span className="font-platypi text-[11px] tracking-[0.25em] uppercase text-brand-cream/40 flex-shrink-0">
+          {label}
+        </span>
+        <span className="font-servus font-light text-[20px] text-brand-cream text-right break-words min-w-0 group-hover:text-brand-cream/60 transition-colors duration-200">
+          {value}
+        </span>
+      </a>
+    </FadeIn>
   );
 }
 
-function HoursRow({ day, hours }: { day: string; hours: string }) {
+function HoursRow({ day, hours, delay = 0 }: { day: string; hours: string; delay?: number }) {
   return (
-    <p className="font-literata text-[15px]">
-      <span className="font-bold text-brand-cream">{day}: </span>
-      <span className="text-brand-cream/70">{hours}</span>
-    </p>
+    <FadeIn direction="none" delay={delay}>
+      <div className="flex items-baseline justify-between gap-6 py-4 border-b border-brand-cream/10">
+        <span className="font-servus font-light text-[18px] text-brand-cream flex-shrink-0">
+          {day}
+        </span>
+        <span className="font-literata text-[15px] text-brand-cream/60 text-right">
+          {hours}
+        </span>
+      </div>
+    </FadeIn>
   );
 }
