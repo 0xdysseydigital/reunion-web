@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Button from "@/components/Button";
+import { RESERVATIONS_URL } from "@/lib/constants";
 
 function AnimatedWord({ text, className, baseDelay }: { text: string; className: string; baseDelay: number }) {
   return (
@@ -42,27 +43,27 @@ export default function Hero() {
 
       <div className="absolute inset-0 bg-black/35" />
 
-      {/* Text + buttons — anchored at 33% */}
+      {/* Text + buttons — anchored at 33%. Delays are timed to the LoadingScreen exit (~1.9s) */}
       <div className="absolute left-1/2 -translate-x-1/2 z-10 text-center flex flex-col items-center" style={{ top: "calc(33% - 53px)" }}>
         <AnimatedWord
           text="Reunion"
-          baseDelay={3.7}
+          baseDelay={1.68}
           className="font-servus font-light text-brand-cream/80 text-[clamp(2rem,9vw,9rem)] leading-[0.9] tracking-wide uppercase whitespace-nowrap"
         />
 
         <AnimatedWord
           text="cocktails + provisions"
-          baseDelay={4.05}
+          baseDelay={1.84}
           className="font-platypi text-brand-cream/60 text-[clamp(0.75rem,1.6vw,1.1rem)] leading-[0.9] tracking-[0.3em] mt-3.5"
         />
 
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 4.5, duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          transition={{ delay: 2.05, duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="flex flex-col sm:flex-row gap-4 mt-16"
         >
-          <Button href="/reservations">Reservations</Button>
+          <Button href={RESERVATIONS_URL} external>Reservations</Button>
           <Button href="/menus">View Menus</Button>
         </motion.div>
       </div>
