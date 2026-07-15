@@ -89,7 +89,13 @@ export default function Spaces() {
                     }}
                   />
                   <div className="absolute inset-0 flex items-center justify-center px-4">
-                    <div className="w-full text-center font-servus font-normal text-[clamp(14px,2.2vw,22px)] tracking-[0.15em] text-brand-cream uppercase">
+                    <div
+                      className="w-full text-center font-servus font-normal text-[clamp(14px,2.2vw,22px)] tracking-[0.15em] text-brand-cream uppercase"
+                      style={{
+                        opacity: isShrunk ? 0 : 1,
+                        transition: "opacity 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+                      }}
+                    >
                       {label}
                     </div>
                   </div>
