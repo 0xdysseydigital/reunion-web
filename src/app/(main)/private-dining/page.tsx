@@ -7,7 +7,6 @@ const SPACES = [
     id: "the-library",
     label: "The Library",
     src: "/spaces/library.png",
-    cta: true,
     eyebrow: "Private Space",
     description:
       "Seats up to 14 guests in warmth and quiet sophistication. The Library may be reserved on its own or combined with The Atrium for larger gatherings — an intimate setting where atmosphere and detail are part of the experience.",
@@ -16,37 +15,9 @@ const SPACES = [
     id: "the-atrium",
     label: "The Atrium",
     src: "/spaces/atrium.png",
-    cta: true,
     eyebrow: "Private Space",
     description:
       "Accommodates up to 32 guests with flexible seating arrangements, making it ideal for receptions, milestone celebrations, and corporate dinners. A 65-inch display is available for presentations or personalized touches. Reserve separately or alongside The Library.",
-  },
-  {
-    id: "the-lounge",
-    label: "The Lounge",
-    src: "/spaces/lounge.jpg",
-    cta: false,
-    eyebrow: "Space",
-    description:
-      "Low light, deep seating, and a soundtrack that knows when to step back. The Lounge is built for settling in — an atmosphere that shifts naturally from afternoon into evening.",
-  },
-  {
-    id: "the-den",
-    label: "The Den",
-    src: "/spaces/den.png",
-    cta: false,
-    eyebrow: "Space",
-    description:
-      "Tucked away from the main floor, The Den is a smaller, warmer corner of Reunion. Stone, wood, and low ceilings create a sense of enclosure that feels intentional — a room that holds conversation.",
-  },
-  {
-    id: "the-garden",
-    label: "The Garden",
-    src: "/spaces/garden.png",
-    cta: false,
-    eyebrow: "Space",
-    description:
-      "When the season allows, The Garden opens Reunion to the outside. Lush and unhurried, it's the kind of outdoor space that makes you forget there's anywhere else to be.",
   },
 ];
 
@@ -55,7 +26,7 @@ const PHONE = "(717) 918-0018";
 const PHONE_URL = "tel:+17179180018";
 
 export const metadata = {
-  title: "Reunion's Spaces — Reunion Cocktails + Provisions",
+  title: "Private Dining — Reunion Cocktails + Provisions",
 };
 
 export default function PrivateDiningPage() {
@@ -71,7 +42,7 @@ export default function PrivateDiningPage() {
         </FadeIn>
         <FadeIn direction="none" delay={0.1}>
           <h1 className="font-servus font-light text-[clamp(2.5rem,6vw,4rem)] leading-none tracking-wide uppercase text-brand-cream/90">
-            Reunion's Spaces
+            Private Dining
           </h1>
         </FadeIn>
         <FadeIn direction="none" delay={0.2}>
@@ -110,20 +81,18 @@ export default function PrivateDiningPage() {
               <h2 className="font-servus font-light text-[clamp(1.8rem,4vw,3rem)] leading-none tracking-wide uppercase text-brand-cream mb-6">
                 {space.label}
               </h2>
-              <p className={`font-literata text-[18px] text-brand-cream/70 leading-relaxed max-w-md ${space.cta ? "mb-10" : ""}`}>
+              <p className="font-literata text-[18px] text-brand-cream/70 leading-relaxed max-w-md mb-10">
                 {space.description}
               </p>
-              {space.cta && (
-                <div className="flex flex-col gap-4">
-                  <Button href={PHONE_URL} external>{PHONE}</Button>
-                  <a
-                    href={mailto}
-                    className="font-platypi text-[10px] tracking-[0.25em] uppercase text-brand-cream/35 hover:text-brand-cream/60 transition-colors duration-200"
-                  >
-                    {EMAIL}
-                  </a>
-                </div>
-              )}
+              <div className="flex flex-col gap-4">
+                <Button href={PHONE_URL} external>{PHONE}</Button>
+                <a
+                  href={mailto}
+                  className="font-platypi text-[10px] tracking-[0.25em] uppercase text-brand-cream/35 hover:text-brand-cream/60 transition-colors duration-200"
+                >
+                  {EMAIL}
+                </a>
+              </div>
             </FadeIn>
           </div>
         );
