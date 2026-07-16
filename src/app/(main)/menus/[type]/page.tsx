@@ -8,13 +8,6 @@ import { client } from "@/sanity/lib/client";
 
 const VALID_TYPES: MenuType[] = ["brunch", "lunch", "dinner", "bar"];
 
-const MENU_DESCRIPTIONS: Record<MenuType, string> = {
-  brunch: "Weekend mornings the way they should be — unhurried, indulgent, and well-poured.",
-  lunch: "Midday done right. Fresh, seasonal, and worth sitting down for.",
-  dinner: "The full Reunion experience. Settle in.",
-  bar: "Handcrafted from the first pour. Every glass, intentional.",
-};
-
 const ITEMS_QUERY = `*[_type == "menuItem" && menu_type == $type] | order(section asc, name asc) {
   _id,
   "slug": coalesce(slug.current, _id),
@@ -77,15 +70,9 @@ export default async function MenuTypePage({
       {/* Header */}
       <div className="border-b border-brand-cream/10 px-6 md:px-10 py-10 md:py-12 flex flex-col items-center text-center">
         <FadeIn direction="none">
-          <p className="font-platypi text-[11px] tracking-[0.3em] uppercase text-brand-cream/40 mb-4">
-            {MENU_LABELS[type]}
-          </p>
           <h1 className="font-servus font-light text-[clamp(2.5rem,6vw,4rem)] leading-none tracking-wide uppercase text-brand-cream/90">
             {MENU_LABELS[type]}
           </h1>
-          <p className="font-literata text-brand-cream/50 text-[18px] mt-5 max-w-sm leading-relaxed">
-            {MENU_DESCRIPTIONS[type]}
-          </p>
         </FadeIn>
       </div>
 
