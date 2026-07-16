@@ -34,7 +34,8 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     const lenis = lenisRef.current;
     if (!lenis) return;
 
-    lenis.scrollTo(0, { immediate: true });
+    const hash = window.location.hash;
+    if (!hash) lenis.scrollTo(0, { immediate: true });
 
     // Recalculate scroll limit for the new page. Lenis's internal ResizeObserver
     // has a 250ms debounce — calling resize() manually here bypasses that delay
@@ -42,6 +43,11 @@ export default function SmoothScroll({ children }: { children: React.ReactNode }
     // One rAF gives the browser a frame to paint the new page content first.
     const id = requestAnimationFrame(() => {
       lenisRef.current?.resize();
+
+      if (hash) {
+        const target = document.querySelector(hash);
+        if (target) lenisRef.current?.scrollTo(target as HTMLElement, { immediate: true });
+      }
     });
     return () => cancelAnimationFrame(id);
   }, [pathname]);
