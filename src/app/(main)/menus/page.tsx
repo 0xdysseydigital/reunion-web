@@ -46,9 +46,6 @@ export default function MenusPage() {
           <h1 className="font-servus font-light text-[clamp(2.5rem,6vw,4rem)] leading-none tracking-wide uppercase text-brand-cream/90">
             Menus
           </h1>
-          <p className="font-literata text-brand-cream/50 text-[18px] mt-6 max-w-sm leading-relaxed">
-            Menus coming soon.
-          </p>
         </FadeIn>
       </div>
 
