@@ -1,6 +1,7 @@
 import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
 import Button from "@/components/Button";
+import { PHONE, PHONE_URL } from "@/lib/constants";
 
 const SPACES = [
   {
@@ -22,8 +23,6 @@ const SPACES = [
 ];
 
 const EMAIL = "manager@reunioncocktailsprovisions.com";
-const PHONE = "(717) 918-0018";
-const PHONE_URL = "tel:+17179180018";
 
 export const metadata = {
   title: "Private Dining — Reunion Cocktails + Provisions",

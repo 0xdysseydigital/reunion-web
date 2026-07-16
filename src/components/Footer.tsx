@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { RESERVATIONS_URL } from "@/lib/constants";
+import { RESERVATIONS_URL, PHONE, PHONE_URL } from "@/lib/constants";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -62,6 +62,14 @@ export default function Footer() {
                 className="font-literata text-[12px] text-brand-cream/70 hover:text-brand-cream transition-colors duration-200"
               >
                 manager@reunion<wbr />cocktailsprovisions.com
+              </a>
+            </p>
+            <p>
+              <a
+                href={PHONE_URL}
+                className="font-literata text-[12px] text-brand-cream/70 hover:text-brand-cream transition-colors duration-200"
+              >
+                {PHONE}
               </a>
             </p>
             <p className="font-literata text-[12px] text-brand-cream/70">

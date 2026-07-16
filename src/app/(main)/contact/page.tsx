@@ -1,10 +1,8 @@
 import FadeIn from "@/components/FadeIn";
 import Button from "@/components/Button";
-import { RESERVATIONS_URL } from "@/lib/constants";
+import { RESERVATIONS_URL, PHONE, PHONE_URL } from "@/lib/constants";
 
 const EMAIL = "manager@reunioncocktailsprovisions.com";
-const PHONE = "(717) 918-0018";
-const PHONE_URL = "tel:+17179180018";
 const ADDRESS = "1201 W Chocolate Ave, Hummelstown, PA 17036";
 const MAPS_URL = "https://maps.google.com/?q=1201+W+Chocolate+Ave+Hummelstown+PA+17036";
 const INSTAGRAM_URL = "https://www.instagram.com/reunioncocktailsprovisions/";
