@@ -2,8 +2,9 @@ import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
 import Button from "@/components/Button";
 import { RESERVATIONS_URL } from "@/lib/constants";
+import { getSiteSettings, resolveImage } from "@/lib/siteSettings";
 
-const GALLERY = [
+const STATIC_GALLERY = [
   { src: "/images/info-interior.png", w: 805, h: 1432, alt: "Reunion dining room interior" },
   { src: "/spaces/lounge.jpg", w: 1536, h: 1024, alt: "The Lounge seating area" },
   { src: "/images/bar-hero.jpg", w: 1500, h: 1500, alt: "Bar cocktail service" },
@@ -21,7 +22,18 @@ export const metadata = {
   title: "Vibes — Reunion Cocktails + Provisions",
 };
 
-export default function VibesPage() {
+export default async function VibesPage() {
+  const settings = await getSiteSettings();
+  const gallery =
+    settings?.vibesGallery && settings.vibesGallery.length > 0
+      ? settings.vibesGallery.map((item, i) => ({
+          src: resolveImage(item.image, 900) ?? "",
+          w: item.width ?? 1200,
+          h: item.height ?? 900,
+          alt: item.alt || `Reunion gallery photo ${i + 1}`,
+        }))
+      : STATIC_GALLERY;
+
   return (
     <div className="min-h-screen flex flex-col">
 
@@ -59,7 +71,7 @@ export default function VibesPage() {
 
       {/* Gallery — masonry grid */}
       <div className="columns-2 md:columns-3 gap-4 md:gap-6 px-6 md:px-10 py-14 md:py-20">
-        {GALLERY.map(({ src, w, h, alt }, i) => (
+        {gallery.map(({ src, w, h, alt }, i) => (
           <FadeIn
             key={src}
             direction="none"

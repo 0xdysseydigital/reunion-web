@@ -8,16 +8,17 @@ import { client } from "@/sanity/lib/client";
 
 const VALID_TYPES: MenuType[] = ["brunch", "lunch", "dinner", "bar"];
 
-const ITEMS_QUERY = `*[_type == "menuItem" && menu_type == $type] | order(section asc, name asc) {
+const ITEMS_QUERY = `*[_type == "menuItem" && $type in menu_type] | order(section->orderRank asc, orderRank asc) {
   _id,
   "slug": coalesce(slug.current, _id),
   name,
   description,
   price,
-  "image": image.asset->url,
+  image,
   menu_type,
-  section,
-  "allergens": coalesce(allergens, [])
+  "section": section->title,
+  "allergens": coalesce(allergens, []),
+  "dietary": coalesce(dietary, [])
 }`;
 
 export function generateStaticParams() {

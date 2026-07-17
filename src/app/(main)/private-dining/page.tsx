@@ -2,6 +2,7 @@ import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
 import Button from "@/components/Button";
 import { PHONE, PHONE_URL } from "@/lib/constants";
+import { getSiteSettings, resolveImage } from "@/lib/siteSettings";
 
 const SPACES = [
   {
@@ -28,7 +29,13 @@ export const metadata = {
   title: "Private Dining — Reunion Cocktails + Provisions",
 };
 
-export default function PrivateDiningPage() {
+export default async function PrivateDiningPage() {
+  const settings = await getSiteSettings();
+  const spaceImages: Record<string, string | null> = {
+    "the-library": resolveImage(settings?.spaceLibraryImage, 1200),
+    "the-atrium": resolveImage(settings?.spaceAtriumImage, 1200),
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
 
@@ -72,7 +79,7 @@ export default function PrivateDiningPage() {
             amount={0.15}
             className="w-full md:w-[45%] min-h-[300px] md:min-h-[500px] flex-shrink-0 relative overflow-hidden"
           >
-            <Image src={space.src} alt={space.label} fill className="object-cover" />
+            <Image src={spaceImages[space.id] || space.src} alt={space.label} fill className="object-cover" />
           </FadeIn>
         );
 

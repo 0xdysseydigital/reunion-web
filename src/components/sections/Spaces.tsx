@@ -13,7 +13,7 @@ const SPACES = [
   { label: "THE GARDEN",   src: "/spaces/garden.png",     slug: "the-garden" },
 ];
 
-export default function Spaces() {
+export default function Spaces({ images }: { images?: Record<string, string | null> }) {
   const [hoveredSlug, setHoveredSlug] = useState<string | null>(null);
 
   return (
@@ -26,7 +26,7 @@ export default function Spaces() {
             key={slug}
             className="relative aspect-[4/3] overflow-hidden block"
           >
-            <Image src={src} alt={label} fill className="object-cover" />
+            <Image src={images?.[slug] || src} alt={label} fill className="object-cover" />
             <div className="absolute inset-0 bg-black/50" />
             <div className="absolute inset-0 flex items-center justify-center px-4">
               <span className="font-servus font-normal text-brand-cream text-[1rem] tracking-[0.15em] uppercase">
@@ -63,7 +63,7 @@ export default function Spaces() {
                   onPointerLeave={(e) => { if (e.pointerType === "mouse") setHoveredSlug(null); }}
                 >
                   <Image
-                    src={src}
+                    src={images?.[slug] || src}
                     alt={label}
                     fill
                     className="object-cover"

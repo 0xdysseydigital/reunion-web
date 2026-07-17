@@ -1,13 +1,29 @@
+import type { SanityImageSource } from "@sanity/image-url";
+
 export type Allergen =
-  | "Nuts"
   | "Dairy"
+  | "Egg"
+  | "Fish"
   | "Gluten"
+  | "Peanut"
+  | "Sesame"
   | "Shellfish"
   | "Soy"
-  | "Vegan"
-  | "Vegetarian";
+  | "Tree Nut"
+  | "Coconut"
+  | "Pineapple"
+  | "Lavender";
+
+export type Dietary = "Vegan" | "Vegetarian";
 
 export type MenuType = "brunch" | "lunch" | "dinner" | "bar";
+
+export type AllergenEntry = {
+  allergen: Allergen;
+  ingredient?: string;
+  substitutable?: "Yes" | "No" | "Unclear";
+  substituteSuggestion?: string;
+};
 
 export type MenuItem = {
   _id?: string;
@@ -15,10 +31,11 @@ export type MenuItem = {
   name: string;
   description: string;
   price: string;
-  image: string;
-  menu_type: MenuType;
+  image: SanityImageSource | null;
+  menu_type: MenuType[];
   section: string;
-  allergens: Allergen[];
+  allergens: AllergenEntry[];
+  dietary: Dietary[];
 };
 
 export const MENU_LABELS: Record<MenuType, string> = {
@@ -29,11 +46,16 @@ export const MENU_LABELS: Record<MenuType, string> = {
 };
 
 export const ALLERGENS: Allergen[] = [
-  "Nuts",
   "Dairy",
+  "Egg",
+  "Fish",
   "Gluten",
+  "Peanut",
+  "Sesame",
   "Shellfish",
   "Soy",
-  "Vegan",
-  "Vegetarian",
+  "Tree Nut",
+  "Coconut",
+  "Pineapple",
+  "Lavender",
 ];

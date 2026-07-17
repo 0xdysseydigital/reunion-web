@@ -3,16 +3,17 @@ import AllergensFilter from "./AllergensFilter";
 import { client } from "@/sanity/lib/client";
 import type { MenuItem } from "@/types/menu";
 
-const ALL_ITEMS_QUERY = `*[_type == "menuItem"] | order(menu_type asc, section asc, name asc) {
+const ALL_ITEMS_QUERY = `*[_type == "menuItem"] | order(section->orderRank asc, orderRank asc) {
   _id,
   "slug": coalesce(slug.current, _id),
   name,
   description,
   price,
-  "image": image.asset->url,
+  image,
   menu_type,
-  section,
-  "allergens": coalesce(allergens, [])
+  "section": section->title,
+  "allergens": coalesce(allergens, []),
+  "dietary": coalesce(dietary, [])
 }`;
 
 export const metadata = {

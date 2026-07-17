@@ -3,7 +3,7 @@ import Button from "@/components/Button";
 import FadeIn from "@/components/FadeIn";
 import { RESERVATIONS_URL } from "@/lib/constants";
 
-export default function Info() {
+export default function Info({ imageUrl }: { imageUrl?: string | null }) {
   return (
     <section
       className="bg-brand-bg flex flex-col md:flex-row"
@@ -15,7 +15,7 @@ export default function Info() {
         className="w-full md:w-[40%] min-h-[400px] md:min-h-[600px] flex-shrink-0 relative overflow-hidden"
       >
         <Image
-          src="/images/info-interior.png"
+          src={imageUrl || "/images/info-interior.png"}
           alt="Reunion interior"
           fill
           className="object-cover"

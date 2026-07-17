@@ -1,6 +1,7 @@
 import Image from "next/image";
-import type { MenuItem, MenuType, MENU_LABELS } from "@/types/menu";
-import { MENU_LABELS as LABELS } from "@/types/menu";
+import type { MenuItem } from "@/types/menu";
+import { MENU_LABELS } from "@/types/menu";
+import { urlFor } from "@/sanity/lib/image";
 
 export default function MenuItemCard({
   item,
@@ -9,13 +10,17 @@ export default function MenuItemCard({
   item: MenuItem;
   showMenuType?: boolean;
 }) {
+  const imageUrl = item.image
+    ? urlFor(item.image).width(600).height(450).fit("crop").auto("format").url()
+    : null;
+
   return (
     <article className="flex flex-col">
       {/* Image */}
       <div className="relative aspect-[4/3] overflow-hidden flex-shrink-0 bg-brand-cream/5">
-        {item.image && (
+        {imageUrl && (
           <Image
-            src={item.image}
+            src={imageUrl}
             alt={item.name}
             fill
             className="object-cover"
@@ -26,9 +31,9 @@ export default function MenuItemCard({
 
       {/* Content */}
       <div className="pt-4 flex flex-col gap-2">
-        {showMenuType && (
+        {showMenuType && item.menu_type.length > 0 && (
           <p className="font-platypi text-[9px] tracking-[0.2em] uppercase text-brand-cream/35">
-            {LABELS[item.menu_type as keyof typeof LABELS]}
+            {item.menu_type.map((t) => MENU_LABELS[t]).join(" + ")}
           </p>
         )}
 
@@ -47,17 +52,32 @@ export default function MenuItemCard({
           {item.description}
         </p>
 
-        {/* Allergen badges */}
-        {(item.allergens ?? []).length > 0 && (
+        {/* Dietary + allergen badges */}
+        {(item.dietary.length > 0 || item.allergens.length > 0) && (
           <div className="flex flex-wrap gap-1.5 mt-1">
-            {(item.allergens ?? []).map((tag) => (
+            {item.dietary.map((tag) => (
               <span
                 key={tag}
-                className="font-platypi text-[9px] tracking-[0.08em] uppercase px-2 py-0.5 border border-brand-cream/20 text-brand-cream/45"
+                className="font-platypi text-[9px] tracking-[0.08em] uppercase px-2 py-0.5 border border-brand-cream/30 text-brand-cream/60"
               >
                 {tag}
               </span>
             ))}
+            {item.allergens.map((entry, i) => {
+              const detail = [entry.ingredient, entry.substituteSuggestion]
+                .filter(Boolean)
+                .join(" — ");
+              return (
+                <span
+                  key={`${entry.allergen}-${i}`}
+                  title={detail || undefined}
+                  className="font-platypi text-[9px] tracking-[0.08em] uppercase px-2 py-0.5 border border-brand-cream/20 text-brand-cream/45"
+                >
+                  {entry.allergen}
+                  {entry.substitutable === "Yes" && " *"}
+                </span>
+              );
+            })}
           </div>
         )}
       </div>

@@ -27,14 +27,14 @@ function AnimatedWord({ text, className, baseDelay }: { text: string; className:
   );
 }
 
-export default function Hero() {
+export default function Hero({ imageUrl }: { imageUrl?: string | null }) {
   return (
     <section
       className="relative h-screen flex items-center justify-center overflow-hidden"
       aria-label="Hero"
     >
       <Image
-        src="/images/hero-bg.png"
+        src={imageUrl || "/images/hero-bg.png"}
         alt=""
         fill
         className="object-cover"

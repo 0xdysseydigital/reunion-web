@@ -1,6 +1,7 @@
 import FadeIn from "@/components/FadeIn";
 import Button from "@/components/Button";
 import MenuHubCard from "@/components/MenuHubCard";
+import { getSiteSettings, resolveImage } from "@/lib/siteSettings";
 
 export const metadata = {
   title: "Menus — Reunion Cocktails + Provisions",
@@ -33,7 +34,15 @@ const MENU_CARDS = [
   },
 ];
 
-export default function MenusPage() {
+export default async function MenusPage() {
+  const settings = await getSiteSettings();
+  const heroImages: Record<string, string | null> = {
+    brunch: resolveImage(settings?.menuHeroBrunchImage, 900),
+    lunch: resolveImage(settings?.menuHeroLunchImage, 900),
+    dinner: resolveImage(settings?.menuHeroDinnerImage, 900),
+    bar: resolveImage(settings?.menuHeroBarImage, 900),
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
 
@@ -53,7 +62,7 @@ export default function MenusPage() {
       <div className="grid grid-cols-1 md:grid-cols-2">
         {MENU_CARDS.map(({ type, label, tagline, image }, i) => (
           <FadeIn key={type} direction="none" delay={i * 0.06}>
-            <MenuHubCard type={type} label={label} tagline={tagline} image={image} />
+            <MenuHubCard type={type} label={label} tagline={tagline} image={heroImages[type] || image} />
           </FadeIn>
         ))}
       </div>

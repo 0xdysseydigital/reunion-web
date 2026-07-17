@@ -25,4 +25,9 @@ export default defineConfig({
     // https://www.sanity.io/docs/the-vision-plugin
     visionTool({defaultApiVersion: apiVersion}),
   ],
+  document: {
+    // siteSettings is a singleton — keep it out of the global "create new" menu
+    newDocumentOptions: (prev) =>
+      prev.filter((template) => template.templateId !== 'siteSettings'),
+  },
 })
