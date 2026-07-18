@@ -2,25 +2,29 @@
 
 import { useState, useMemo } from "react";
 import FadeIn from "@/components/FadeIn";
-import MenuItemCard from "@/components/MenuItemCard";
-import { ALLERGENS } from "@/types/menu";
-import type { MenuItem, Allergen, Dietary } from "@/types/menu";
+import { ALLERGENS, MENU_LABELS } from "@/types/menu";
+import type { MenuItem, Allergen, AllergenEntry } from "@/types/menu";
 
-const DIETARY_OPTIONS: Dietary[] = ["Vegan", "Vegetarian"];
+function substitutionNote(entry: AllergenEntry): string | null {
+  if (entry.substitutable === "Yes") {
+    return entry.substituteSuggestion
+      ? `substitute: ${entry.substituteSuggestion}`
+      : "can be substituted";
+  }
+  if (entry.substitutable === "Unclear") {
+    return entry.substituteSuggestion
+      ? `${entry.substituteSuggestion} — confirm with your server`
+      : "confirm with your server";
+  }
+  return null;
+}
 
 export default function AllergensFilter({ items }: { items: MenuItem[] }) {
   const [query, setQuery] = useState("");
   const [avoid, setAvoid] = useState<Allergen[]>([]);
-  const [dietary, setDietary] = useState<Dietary[]>([]);
 
   const toggleAvoid = (tag: Allergen) => {
     setAvoid((prev) =>
-      prev.includes(tag) ? prev.filter((a) => a !== tag) : [...prev, tag]
-    );
-  };
-
-  const toggleDietary = (tag: Dietary) => {
-    setDietary((prev) =>
       prev.includes(tag) ? prev.filter((a) => a !== tag) : [...prev, tag]
     );
   };
@@ -36,15 +40,16 @@ export default function AllergensFilter({ items }: { items: MenuItem[] }) {
       const matchesAvoid = !avoid.some((tag) =>
         (item.allergens ?? []).some((entry) => entry.allergen === tag)
       );
-      // Dietary tags are a positive match — the dish must carry all selected tags.
-      const matchesDietary = dietary.every((tag) =>
-        (item.dietary ?? []).includes(tag)
-      );
-      return matchesSearch && matchesAvoid && matchesDietary;
+      return matchesSearch && matchesAvoid;
     });
-  }, [items, query, avoid, dietary]);
+  }, [items, query, avoid]);
 
-  const filterCount = avoid.length + dietary.length + (query.trim() ? 1 : 0);
+  const sections = useMemo(
+    () => Array.from(new Map(filtered.map((i) => [i.section, true])).keys()),
+    [filtered]
+  );
+
+  const filterCount = avoid.length + (query.trim() ? 1 : 0);
 
   return (
     <>
@@ -82,42 +87,14 @@ export default function AllergensFilter({ items }: { items: MenuItem[] }) {
           </div>
         </div>
 
-        <div className="flex flex-col gap-3">
-          <p className="font-platypi text-[10px] tracking-[0.2em] uppercase text-brand-cream/35">
-            Dietary
-          </p>
-          <div className="flex gap-2 overflow-x-auto pb-1" style={{ scrollbarWidth: "none" }}>
-            {DIETARY_OPTIONS.map((tag) => {
-              const on = dietary.includes(tag);
-              return (
-                <button
-                  key={tag}
-                  onClick={() => toggleDietary(tag)}
-                  className={`flex-shrink-0 font-platypi text-[10px] tracking-[0.1em] uppercase px-3 py-1.5 transition-colors duration-200 ${
-                    on
-                      ? "bg-brand-cream text-brand-bg"
-                      : "border border-brand-cream/25 text-brand-cream/50 hover:border-brand-cream/50 hover:text-brand-cream/80"
-                  }`}
-                >
-                  {tag}
-                </button>
-              );
-            })}
-          </div>
-        </div>
-
         {filterCount > 0 && (
           <p className="font-platypi text-[10px] tracking-[0.15em] uppercase text-brand-cream/40">
             {filterCount} filter{filterCount !== 1 ? "s" : ""} active — showing {filtered.length} dish{filtered.length !== 1 ? "es" : ""}
           </p>
         )}
-
-        <p className="font-literata text-[13px] text-brand-cream/35 italic">
-          Tap a badge on a dish below for the specific ingredient and whether it can be substituted.
-        </p>
       </FadeIn>
 
-      {/* Results */}
+      {/* Results — grouped list by section */}
       <div className="px-6 md:px-10 py-10 md:py-14 flex-1">
         {filtered.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-24 text-center">
@@ -128,16 +105,66 @@ export default function AllergensFilter({ items }: { items: MenuItem[] }) {
               those filters.
             </p>
             <button
-              onClick={() => { setAvoid([]); setDietary([]); setQuery(""); }}
+              onClick={() => { setAvoid([]); setQuery(""); }}
               className="mt-8 font-platypi text-[10px] tracking-[0.2em] uppercase text-brand-cream/40 hover:text-brand-cream transition-colors duration-200 border-b border-brand-cream/20 pb-0.5"
             >
               Clear all
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
-            {filtered.map((item) => (
-              <MenuItemCard key={item.slug} item={item} showMenuType />
+          <div className="max-w-3xl mx-auto flex flex-col gap-14">
+            {sections.map((section) => (
+              <div key={section}>
+                <p className="font-platypi text-[11px] tracking-[0.3em] uppercase text-brand-cream/40 border-b border-brand-cream/20 pb-3 mb-2">
+                  {section}
+                </p>
+                {filtered
+                  .filter((item) => item.section === section)
+                  .map((item) => (
+                    <div key={item.slug} className="py-5 border-b border-brand-cream/10">
+                      <div className="flex items-baseline justify-between gap-6">
+                        <h3 className="font-servus font-normal text-[20px] leading-tight text-brand-cream">
+                          {item.name}
+                        </h3>
+                        <span className="font-platypi text-[13px] text-brand-cream/55 flex-shrink-0">
+                          {item.price}
+                        </span>
+                      </div>
+
+                      {item.menu_type.length > 0 && (
+                        <p className="font-platypi text-[9px] tracking-[0.2em] uppercase text-brand-cream/35 mt-1">
+                          {item.menu_type.map((t) => MENU_LABELS[t]).join(" + ")}
+                        </p>
+                      )}
+
+                      {item.description && (
+                        <p className="font-literata text-[15px] text-brand-cream/55 leading-relaxed mt-2">
+                          {item.description}
+                        </p>
+                      )}
+
+                      <ul className="mt-3 flex flex-col gap-1">
+                        {item.allergens.map((entry, i) => {
+                          const note = substitutionNote(entry);
+                          return (
+                            <li
+                              key={`${entry.allergen}-${i}`}
+                              className="font-literata text-[14px] text-brand-cream/70"
+                            >
+                              <span className="text-brand-cream/90 uppercase tracking-[0.05em] text-[12px] font-platypi mr-2">
+                                {entry.allergen}
+                              </span>
+                              {entry.ingredient && <span>— {entry.ingredient}</span>}
+                              {note && (
+                                <span className="text-brand-cream/40 italic"> ({note})</span>
+                              )}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  ))}
+              </div>
             ))}
           </div>
         )}

@@ -3,7 +3,7 @@ import AllergensFilter from "./AllergensFilter";
 import { client } from "@/sanity/lib/client";
 import type { MenuItem } from "@/types/menu";
 
-const ALL_ITEMS_QUERY = `*[_type == "menuItem"] | order(section->orderRank asc, orderRank asc) {
+const ALL_ITEMS_QUERY = `*[_type == "menuItem" && count(allergens) > 0] | order(section->orderRank asc, orderRank asc) {
   _id,
   "slug": coalesce(slug.current, _id),
   name,
@@ -40,7 +40,7 @@ export default async function AllergensPage() {
             Allergen Guide
           </h1>
           <p className="font-literata text-brand-cream/50 text-[18px] mt-5 max-w-sm leading-relaxed text-center mx-auto">
-            Select your dietary requirements below. We&apos;ll show every dish that meets all of them.
+            Showing dishes we&apos;ve reviewed for common allergens. Don&apos;t see something you&apos;re looking for? Ask your server.
           </p>
         </FadeIn>
       </div>
