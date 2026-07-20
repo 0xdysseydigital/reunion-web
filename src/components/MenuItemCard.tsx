@@ -1,6 +1,6 @@
 import Image from "next/image";
 import type { MenuItem } from "@/types/menu";
-import { MENU_LABELS } from "@/types/menu";
+import { MENU_LABELS, substitutionNote } from "@/types/menu";
 import { urlFor } from "@/sanity/lib/image";
 
 export default function MenuItemCard({
@@ -64,7 +64,7 @@ export default function MenuItemCard({
               </span>
             ))}
             {item.allergens.map((entry, i) => {
-              const detail = [entry.ingredient, entry.substituteSuggestion]
+              const detail = [entry.ingredient, substitutionNote(entry)]
                 .filter(Boolean)
                 .join(" — ");
               return (
@@ -74,7 +74,7 @@ export default function MenuItemCard({
                   className="font-platypi text-[9px] tracking-[0.08em] uppercase px-2 py-0.5 border border-brand-cream/20 text-brand-cream/45"
                 >
                   {entry.allergen}
-                  {entry.substitutable === "Yes" && " *"}
+                  {entry.modifiable === "Yes" && " *"}
                 </span>
               );
             })}

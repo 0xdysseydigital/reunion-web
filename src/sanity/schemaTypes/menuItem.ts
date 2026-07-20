@@ -99,16 +99,31 @@ export const menuItemType = defineType({
               description: "The specific ingredient that causes this allergen, e.g. Pistachio",
             }),
             defineField({
-              name: "substitutable",
+              name: "modifiable",
               type: "string",
-              title: "Substitutable?",
+              title: "Can this be modified to remove the allergen?",
               options: { list: ["Yes", "No", "Unclear"] },
             }),
             defineField({
-              name: "substituteSuggestion",
+              name: "method",
               type: "string",
-              title: "Substitute Suggestion",
-              description: "e.g. \"can be removed\" or \"GF pasta\"",
+              title: "How can it be avoided?",
+              options: {
+                list: [
+                  { title: "Removed entirely (just left off)", value: "remove" },
+                  { title: "Substituted for something else", value: "substitute" },
+                ],
+              },
+              hidden: ({ parent }) =>
+                (parent as { modifiable?: string })?.modifiable !== "Yes" &&
+                (parent as { modifiable?: string })?.modifiable !== "Unclear",
+            }),
+            defineField({
+              name: "substituteIngredient",
+              type: "string",
+              title: "Substitute ingredient",
+              description: "e.g. \"GF pasta\" or \"Regular vanilla vodka\"",
+              hidden: ({ parent }) => (parent as { method?: string })?.method !== "substitute",
             }),
           ],
           preview: {

@@ -21,9 +21,26 @@ export type MenuType = "brunch" | "lunch" | "dinner" | "bar";
 export type AllergenEntry = {
   allergen: Allergen;
   ingredient?: string;
-  substitutable?: "Yes" | "No" | "Unclear";
-  substituteSuggestion?: string;
+  modifiable?: "Yes" | "No" | "Unclear";
+  method?: "remove" | "substitute";
+  substituteIngredient?: string;
 };
+
+/** Human-readable note on whether/how a dish can be modified to avoid this allergen. */
+export function substitutionNote(entry: AllergenEntry): string | null {
+  const unclear = entry.modifiable === "Unclear";
+  if (!unclear && entry.modifiable !== "Yes") return null;
+
+  if (entry.method === "substitute" && entry.substituteIngredient) {
+    return unclear
+      ? `possible substitute: ${entry.substituteIngredient} — confirm with your server`
+      : `substitute: ${entry.substituteIngredient}`;
+  }
+  if (entry.method === "remove") {
+    return unclear ? "may be left off — confirm with your server" : "can be left off";
+  }
+  return unclear ? "confirm with your server" : null;
+}
 
 export type MenuItem = {
   _id?: string;

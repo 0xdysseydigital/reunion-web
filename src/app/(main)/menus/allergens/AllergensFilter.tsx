@@ -1,22 +1,8 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { ALLERGENS, MENU_LABELS } from "@/types/menu";
-import type { MenuItem, Allergen, AllergenEntry } from "@/types/menu";
-
-function substitutionNote(entry: AllergenEntry): string | null {
-  if (entry.substitutable === "Yes") {
-    return entry.substituteSuggestion
-      ? `substitute: ${entry.substituteSuggestion}`
-      : "can be substituted";
-  }
-  if (entry.substitutable === "Unclear") {
-    return entry.substituteSuggestion
-      ? `${entry.substituteSuggestion} — confirm with your server`
-      : "confirm with your server";
-  }
-  return null;
-}
+import { ALLERGENS, MENU_LABELS, substitutionNote } from "@/types/menu";
+import type { MenuItem, Allergen } from "@/types/menu";
 
 export default function AllergensFilter({ items }: { items: MenuItem[] }) {
   const [query, setQuery] = useState("");
