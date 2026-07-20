@@ -42,6 +42,21 @@ export function substitutionNote(entry: AllergenEntry): string | null {
   return unclear ? "confirm with your server" : null;
 }
 
+/** Compact badge (icon + short label) for the same modifiable/method state, for inline display. */
+export function substitutionBadge(entry: AllergenEntry): { icon: string; label: string } | null {
+  const unclear = entry.modifiable === "Unclear";
+  if (!unclear && entry.modifiable !== "Yes") return null;
+
+  const suffix = unclear ? " (unconfirmed)" : "";
+  if (entry.method === "substitute" && entry.substituteIngredient) {
+    return { icon: "→", label: `${entry.substituteIngredient}${suffix}` };
+  }
+  if (entry.method === "remove") {
+    return { icon: "✓", label: `can be left off${suffix}` };
+  }
+  return { icon: "?", label: "confirm with server" };
+}
+
 export type MenuItem = {
   _id?: string;
   slug: string;

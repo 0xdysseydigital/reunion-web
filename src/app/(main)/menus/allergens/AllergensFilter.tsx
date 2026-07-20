@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { ALLERGENS, MENU_LABELS, substitutionNote } from "@/types/menu";
+import { ALLERGENS, MENU_LABELS, substitutionBadge } from "@/types/menu";
 import type { MenuItem, Allergen } from "@/types/menu";
 
 export default function AllergensFilter({ items }: { items: MenuItem[] }) {
@@ -77,6 +77,16 @@ export default function AllergensFilter({ items }: { items: MenuItem[] }) {
             {filterCount} filter{filterCount !== 1 ? "s" : ""} active — showing {filtered.length} dish{filtered.length !== 1 ? "es" : ""}
           </p>
         )}
+
+        <p className="flex flex-wrap items-center gap-x-2 font-platypi text-[10px] tracking-[0.1em] text-brand-cream/30">
+          <span className="flex items-center gap-1">
+            <span className="text-brand-cream/50">✓</span>can be left off
+          </span>
+          <span>·</span>
+          <span className="flex items-center gap-1">
+            <span className="text-brand-cream/50">→</span>substitute available
+          </span>
+        </p>
       </div>
 
       {/* Results — table per section */}
@@ -139,27 +149,34 @@ export default function AllergensFilter({ items }: { items: MenuItem[] }) {
                               )}
                             </td>
                             <td className="py-4 pr-4">
-                              <ul className="flex flex-col gap-1.5">
+                              <ul className="flex flex-col gap-2">
                                 {item.allergens.map((entry, i) => {
-                                  const note = substitutionNote(entry);
+                                  const badge = substitutionBadge(entry);
                                   const highlighted = show.includes(entry.allergen);
                                   return (
                                     <li
                                       key={`${entry.allergen}-${i}`}
-                                      className={`font-literata text-[13px] ${
-                                        highlighted ? "text-brand-cream" : "text-brand-cream/70"
-                                      }`}
+                                      className="flex flex-wrap items-center gap-2"
                                     >
                                       <span
-                                        className={`uppercase tracking-[0.05em] text-[11px] font-platypi mr-2 ${
-                                          highlighted ? "text-brand-cream" : "text-brand-cream/90"
+                                        className={`font-literata text-[13px] ${
+                                          highlighted ? "text-brand-cream" : "text-brand-cream/70"
                                         }`}
                                       >
-                                        {entry.allergen}
+                                        <span
+                                          className={`uppercase tracking-[0.05em] text-[11px] font-platypi mr-2 ${
+                                            highlighted ? "text-brand-cream" : "text-brand-cream/90"
+                                          }`}
+                                        >
+                                          {entry.allergen}
+                                        </span>
+                                        {entry.ingredient && <span>— {entry.ingredient}</span>}
                                       </span>
-                                      {entry.ingredient && <span>— {entry.ingredient}</span>}
-                                      {note && (
-                                        <span className="text-brand-cream/40 italic"> ({note})</span>
+                                      {badge && (
+                                        <span className="inline-flex items-center gap-1 border border-brand-cream/25 px-1.5 py-0.5 font-platypi text-[10px] uppercase tracking-[0.05em] text-brand-cream/70 flex-shrink-0">
+                                          <span aria-hidden="true">{badge.icon}</span>
+                                          {badge.label}
+                                        </span>
                                       )}
                                     </li>
                                   );
