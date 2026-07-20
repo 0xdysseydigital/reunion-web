@@ -115,7 +115,7 @@ export default function AllergensFilter({ items }: { items: MenuItem[] }) {
                 </p>
                 <div className="overflow-x-auto">
                   <table className="w-full border-collapse">
-                    <thead>
+                    <thead className="hidden md:table-header-group">
                       <tr className="border-b border-brand-cream/20">
                         <th className="text-left font-platypi font-normal text-[10px] tracking-[0.15em] uppercase text-brand-cream/40 py-3 pr-4">
                           Dish
@@ -132,11 +132,19 @@ export default function AllergensFilter({ items }: { items: MenuItem[] }) {
                       {filtered
                         .filter((item) => item.section === section)
                         .map((item) => (
-                          <tr key={item.slug} className="border-b border-brand-cream/10 align-top">
-                            <td className="py-4 pr-6 max-w-xs">
-                              <h3 className="font-servus font-normal text-[18px] leading-tight text-brand-cream">
-                                {item.name}
-                              </h3>
+                          <tr
+                            key={item.slug}
+                            className="block md:table-row border-b border-brand-cream/10 py-5 md:py-0 align-top"
+                          >
+                            <td className="block md:table-cell py-0 md:py-4 pr-6 md:max-w-xs">
+                              <div className="flex items-baseline justify-between gap-4 md:block">
+                                <h3 className="font-servus font-normal text-[18px] leading-tight text-brand-cream">
+                                  {item.name}
+                                </h3>
+                                <span className="font-platypi text-[13px] text-brand-cream/55 flex-shrink-0 md:hidden">
+                                  {item.price}
+                                </span>
+                              </div>
                               {item.menu_type.length > 0 && (
                                 <p className="font-platypi text-[9px] tracking-[0.2em] uppercase text-brand-cream/35 mt-1">
                                   {item.menu_type.map((t) => MENU_LABELS[t]).join(" + ")}
@@ -148,7 +156,7 @@ export default function AllergensFilter({ items }: { items: MenuItem[] }) {
                                 </p>
                               )}
                             </td>
-                            <td className="py-4 pr-4">
+                            <td className="block md:table-cell py-3 md:py-4 pr-4">
                               <ul className="flex flex-col gap-2">
                                 {item.allergens.map((entry, i) => {
                                   const badge = substitutionBadge(entry);
@@ -183,7 +191,7 @@ export default function AllergensFilter({ items }: { items: MenuItem[] }) {
                                 })}
                               </ul>
                             </td>
-                            <td className="py-4 text-right font-platypi text-[13px] text-brand-cream/55 whitespace-nowrap">
+                            <td className="hidden md:table-cell py-4 text-right font-platypi text-[13px] text-brand-cream/55 whitespace-nowrap">
                               {item.price}
                             </td>
                           </tr>
